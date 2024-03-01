@@ -1,0 +1,21 @@
+{
+  "name": "treesitter-gularen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bindings/node",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tree-sitter-cli": "^0.20.8"
+  },
+  "tree-sitter": [{
+    "scope": "source.gularen",
+    "file-types": ["gr", "gularen"],
+	"highlights": [
+      "queries/highlights.scm"
+    ]
+  }]
+}
