@@ -1,6 +1,6 @@
-{'hello world'}
+{hello world}
 
-{console.log('hello world')}(js)
+{console.log('hello world')}(javascript)
 
 ---
 hello world

@@ -308,11 +308,12 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 					return true;
 
 				case '(':
-					printf("OVER HERE\n");
+					lexer->advance(lexer, false);
 					if (context->label) {
 						lexer->result_symbol = PAREN_OPEN;
 						return true;
 					}
+					break;
 				
 				default:
 					lexer->advance(lexer, false);
