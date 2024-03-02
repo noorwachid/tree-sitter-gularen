@@ -12,7 +12,7 @@
 
 (code_block (code_content) @markup.raw.block)
 
-(code_lang) @string
+(code_lang) @punctuation
 (fence_open) @punctuation
 (fence_close) @punctuation
 
