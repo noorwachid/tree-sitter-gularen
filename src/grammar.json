@@ -229,6 +229,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "link_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "link"
+        },
+        {
+          "type": "SYMBOL",
           "name": "text"
         }
       ]
@@ -285,6 +293,52 @@
         {
           "type": "STRING",
           "value": "`"
+        }
+      ]
+    },
+    "link_label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "square_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "resource"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_close"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren_close"
+        }
+      ]
+    },
+    "link": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "square_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "resource"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_close"
         }
       ]
     },
@@ -391,6 +445,18 @@
     {
       "type": "SYMBOL",
       "name": "code_inline_content"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "square_open"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "square_close"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "resource"
     },
     {
       "type": "SYMBOL",

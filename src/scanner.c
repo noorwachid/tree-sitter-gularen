@@ -5,19 +5,28 @@
 enum TokenType {
 	NEWLINE,
 	NEWLINE_PLUS,
+
 	HEAD3,
 	HEAD2,
 	HEAD1,
+
 	FENCE_OPEN,
 	FENCE_CLOSE,
 	CODE_LANG,
 	CODE_LINE,
+
 	CURLY_OPEN,
 	CURLY_CLOSE,
 	CODE_INLINE_CONTENT,
+
+	SQUARE_OPEN,
+	SQUARE_CLOSE,
+	RESOURCE,
+
 	PAREN_OPEN,
 	PAREN_CLOSE,
 	LABEL,
+
 	TEXT,
 };
 
@@ -25,6 +34,7 @@ typedef struct {
 	unsigned int indentLevel;
 	unsigned int fenceDashCount;
 	bool codeInline;
+	bool resource;
 	bool label;
 } Context;
 
@@ -33,6 +43,7 @@ void* tree_sitter_gularen_external_scanner_create() {
 	context->indentLevel = 0;
 	context->fenceDashCount = 0;
 	context->codeInline = false;
+	context->resource = false;
 	context->label = false;
 	return context;
 }
@@ -222,6 +233,41 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			}
 
 			lexer->result_symbol = CODE_INLINE_CONTENT;
+			return true;
+		}
+	}
+	
+	if (valid_symbols[SQUARE_OPEN]) {
+		if (lexer->lookahead == '[') {
+			lexer->advance(lexer, false);
+			lexer->result_symbol = SQUARE_OPEN;
+			context->resource = true;
+			return true;
+		}
+	}
+
+	if (valid_symbols[RESOURCE] || valid_symbols[SQUARE_CLOSE]) {
+		if (context->resource) {
+			if (lexer->lookahead == ']') {
+				lexer->advance(lexer, false);
+				lexer->result_symbol = SQUARE_CLOSE;
+				context->resource = false;
+				return true;
+			}
+
+			while (!lexer->eof(lexer) && lexer->lookahead != ']') {
+				lexer->advance(lexer, false);
+			}
+
+			lexer->mark_end(lexer);
+			if (!lexer->eof(lexer)) {
+				lexer->advance(lexer, false);
+				if (lexer->lookahead == '(') {
+					context->label = true;
+				}
+			}
+
+			lexer->result_symbol = RESOURCE;
 			return true;
 		}
 	}
