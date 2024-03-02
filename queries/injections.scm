@@ -1,5 +1,5 @@
-(code_lang
-  (code_marker)
+(code_block_lang
+  (fence_open)
   (lang) @injection.language
-  (code_content) @injection.content
-  (code_marker))
+  (raw) @injection.content
+  (fence_close))

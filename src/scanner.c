@@ -3,7 +3,6 @@
 #include <string.h>
 
 enum TokenType {
-	END,
 	NEWLINE,
 	NEWLINE_PLUS,
 	HEAD3,
@@ -11,17 +10,20 @@ enum TokenType {
 	HEAD1,
 	FENCE_OPEN,
 	FENCE_CLOSE,
-	RAW,
+	CODE_LANG,
+	CODE_LINE,
 	TEXT,
 };
 
 typedef struct {
 	unsigned int indentLevel;
-} Payload;
+	unsigned int fenceDashCount;
+} Context;
 
 void* tree_sitter_gularen_external_scanner_create() {
-	Payload* context = malloc(sizeof(Payload));
+	Context* context = malloc(sizeof(Context));
 	context->indentLevel = 0;
+	context->fenceDashCount = 0;
 	return context;
 }
 
@@ -30,8 +32,8 @@ void tree_sitter_gularen_external_scanner_destroy(void *payload) {
 }
 
 unsigned int tree_sitter_gularen_external_scanner_serialize(void* payload, char* buffer) {
-	memcpy(buffer, payload, sizeof(Payload));
-	return sizeof(Payload);
+	memcpy(buffer, payload, sizeof(Context));
+	return sizeof(Context);
 }
 
 void tree_sitter_gularen_external_scanner_deserialize(void* payload, const char* buffer, unsigned int length) {
@@ -50,12 +52,14 @@ bool parse_text(void* payload, TSLexer* lexer, const bool* valid_symbols) {
 }
 
 bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, const bool* valid_symbols) {
-	if (valid_symbols[END]) {
-		if (lexer->eof(lexer)) {
-			lexer->result_symbol = END;
-			return true;
-		}
-	}
+	Context* context = payload;
+
+	// if (valid_symbols[NEWLINE]) {
+	// 	if (lexer->eof(lexer)) {
+	// 		lexer->result_symbol = NEWLINE;
+	// 		return true;
+	// 	}
+	// }
 
 	if (valid_symbols[NEWLINE] || valid_symbols[NEWLINE_PLUS]) {
 		if (lexer->lookahead == '\n') {
@@ -113,12 +117,78 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 				if (lexer->lookahead == '-') {
 					lexer->advance(lexer, false); 
+					unsigned int dashCount = 3;
+					while (!lexer->eof(lexer) && lexer->lookahead == '-') {
+						dashCount += 1;
+						lexer->advance(lexer, false);
+					}
+
+					if (lexer->lookahead == ' ') {
+						lexer->advance(lexer, false);
+						lexer->result_symbol = FENCE_OPEN;
+						context->fenceDashCount = dashCount;
+						return true;
+					}
+
+					if (lexer->lookahead == '\n') {
+						lexer->result_symbol = FENCE_OPEN;
+						context->fenceDashCount = dashCount;
+						return true;
+					}
 				}
 			}
 		}
 	}
 
+	if (valid_symbols[CODE_LANG]) {
+		if (context->fenceDashCount != 0) {
+			while (!lexer->eof(lexer) && lexer->lookahead != '\n')  {
+				lexer->advance(lexer, false);
+			}
+			lexer->result_symbol = CODE_LANG;
+			return true;
+		}
+	}
+
+	if (valid_symbols[CODE_LINE] || valid_symbols[FENCE_CLOSE]) {
+		if (lexer->lookahead == '-') {
+			unsigned int dashCount = 3;
+			while (!lexer->eof(lexer) && lexer->lookahead == '-') {
+				dashCount += 1;
+				lexer->advance(lexer, false);
+			}
+
+			if (lexer->eof(lexer) || lexer->lookahead == '\n') {
+				while (!lexer->eof(lexer) && lexer->lookahead == '\n')  {
+					lexer->advance(lexer, false);
+				}
+
+				lexer->result_symbol = FENCE_CLOSE;
+				context->fenceDashCount = 0;
+				return true;
+			}
+		}
+
+		while (!lexer->eof(lexer) && lexer->lookahead != '\n') {
+			lexer->advance(lexer, false);
+		}
+
+		if (lexer->lookahead == '\n') {
+			lexer->advance(lexer, false);
+		}
+
+		lexer->result_symbol = CODE_LINE;
+		return true;
+	}
+
 	if (valid_symbols[TEXT]) {
+		switch (lexer->lookahead) {
+			case '*':
+			case '_':
+			case '`':
+			case '~':
+				return false;
+		}
 
 		while (!lexer->eof(lexer)) {
 			switch (lexer->lookahead) {

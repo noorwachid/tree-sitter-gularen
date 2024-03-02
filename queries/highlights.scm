@@ -1,6 +1,10 @@
-(heading) @text.title
+(comment) @comment
 
-(bold) @text.strong
+(chapter) @markup.heading.1
+(section) @markup.heading.2
+(subsection) @markup.heading.3
 
-(italic) @text.emphasis
+(bold) @markup.strong
+(italic) @markup.italic
+(monospaced) @markup.monospaced
 
