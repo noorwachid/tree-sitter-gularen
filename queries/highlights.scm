@@ -16,8 +16,12 @@
 (fence_open) @punctuation
 (fence_close) @punctuation
 
-(resource) @markup.link
-(label) @string
+(label) @markup.link.label
+
+(exclamation) @punctuation
+(question) @punctuation
+(caret) @punctuation
+(equal) @punctuation
 
 (square_open) @punctuation
 (square_close) @punctuation
@@ -25,3 +29,6 @@
 (curly_close) @punctuation
 (paren_open) @punctuation
 (paren_close) @punctuation
+
+(footnote_desc (resource) @function)
+(resource) @markup.link.url

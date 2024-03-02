@@ -15,6 +15,8 @@ module.exports = grammar({
 			$.paragraph,
 		),
 
+		indent: $ => seq($.indent_open, repeat1($._block), $.indent_close),
+
 		chapter: $ => seq($.head3, repeat1($._inline), $._end_block),
 		section: $ => seq($.head2, repeat1($._inline), $._end_block),
 		subsection: $ => seq($.head1, repeat1($._inline), $._end_block),
@@ -35,8 +37,18 @@ module.exports = grammar({
 			$.monospaced,
 			$.code_inline_lang,
 			$.code_inline,
+
+			$.footnote_ref,
+			$.footnote_desc,
+
+			$.include,
+
+			$.view_label,
+			$.view,
+
 			$.link_label,
 			$.link,
+
 			$.text, 
 		),
 
@@ -46,8 +58,16 @@ module.exports = grammar({
 		italic: $ => seq('_', $._inline, '_'),
 		monospaced: $ => seq('`', $._inline, '`'),
 
+		view_label: $ => seq($.exclamation, $.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
+		view: $ => seq($.exclamation, $.square_open, $.resource, $.square_close),
+
 		link_label: $ => seq($.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
 		link: $ => seq($.square_open, $.resource, $.square_close),
+
+		footnote_ref: $ => seq($.caret, $.square_open, $.resource, $.square_close),
+		footnote_desc: $ => seq($.equal, $.square_open, $.resource, $.square_close),
+
+		include: $ => seq($.question, $.square_open, $.resource, $.square_close),
 
 		code_inline_lang: $ => seq($.curly_open, $.code_inline_content, $.curly_close, $.paren_open, $.label, $.paren_close),
 		code_inline: $ => seq($.curly_open, $.code_inline_content, $.curly_close),
@@ -56,6 +76,9 @@ module.exports = grammar({
 	externals: $ => [
 		$._newline,
 		$._newline_plus,
+
+		$._indent_open,
+		$._indent_close,
 
 		$.head3,
 		$.head2,
@@ -69,6 +92,11 @@ module.exports = grammar({
 		$.curly_open,
 		$.curly_close,
 		$.code_inline_content,
+
+		$.exclamation,
+		$.question,
+		$.caret,
+		$.equal,
 
 		$.square_open,
 		$.square_close,

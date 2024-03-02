@@ -229,6 +229,26 @@
         },
         {
           "type": "SYMBOL",
+          "name": "footnote_ref"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "footnote_desc"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "include"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "view_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "view"
+        },
+        {
+          "type": "SYMBOL",
           "name": "link_label"
         },
         {
@@ -296,6 +316,60 @@
         }
       ]
     },
+    "view_label": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "exclamation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "resource"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_close"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paren_close"
+        }
+      ]
+    },
+    "view": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "exclamation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "resource"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_close"
+        }
+      ]
+    },
     "link_label": {
       "type": "SEQ",
       "members": [
@@ -328,6 +402,69 @@
     "link": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "square_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "resource"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_close"
+        }
+      ]
+    },
+    "footnote_ref": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "caret"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "resource"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_close"
+        }
+      ]
+    },
+    "footnote_desc": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "equal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "resource"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_close"
+        }
+      ]
+    },
+    "include": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "question"
+        },
         {
           "type": "SYMBOL",
           "name": "square_open"
@@ -445,6 +582,22 @@
     {
       "type": "SYMBOL",
       "name": "code_inline_content"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "exclamation"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "question"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "caret"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "equal"
     },
     {
       "type": "SYMBOL",

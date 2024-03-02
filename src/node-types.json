@@ -24,6 +24,18 @@
           "named": true
         },
         {
+          "type": "footnote_desc",
+          "named": true
+        },
+        {
+          "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
           "type": "italic",
           "named": true
         },
@@ -41,6 +53,14 @@
         },
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
           "named": true
         }
       ]
@@ -71,7 +91,19 @@
           "named": true
         },
         {
+          "type": "footnote_desc",
+          "named": true
+        },
+        {
+          "type": "footnote_ref",
+          "named": true
+        },
+        {
           "type": "head3",
+          "named": true
+        },
+        {
+          "type": "include",
           "named": true
         },
         {
@@ -92,6 +124,14 @@
         },
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
           "named": true
         }
       ]
@@ -246,6 +286,87 @@
     }
   },
   {
+    "type": "footnote_desc",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "equal",
+          "named": true
+        },
+        {
+          "type": "resource",
+          "named": true
+        },
+        {
+          "type": "square_close",
+          "named": true
+        },
+        {
+          "type": "square_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "footnote_ref",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "caret",
+          "named": true
+        },
+        {
+          "type": "resource",
+          "named": true
+        },
+        {
+          "type": "square_close",
+          "named": true
+        },
+        {
+          "type": "square_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "include",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "question",
+          "named": true
+        },
+        {
+          "type": "resource",
+          "named": true
+        },
+        {
+          "type": "square_close",
+          "named": true
+        },
+        {
+          "type": "square_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "italic",
     "named": true,
     "fields": {},
@@ -270,6 +391,18 @@
           "named": true
         },
         {
+          "type": "footnote_desc",
+          "named": true
+        },
+        {
+          "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
           "type": "italic",
           "named": true
         },
@@ -287,6 +420,14 @@
         },
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
           "named": true
         }
       ]
@@ -375,6 +516,18 @@
           "named": true
         },
         {
+          "type": "footnote_desc",
+          "named": true
+        },
+        {
+          "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
           "type": "italic",
           "named": true
         },
@@ -392,6 +545,14 @@
         },
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
           "named": true
         }
       ]
@@ -422,6 +583,18 @@
           "named": true
         },
         {
+          "type": "footnote_desc",
+          "named": true
+        },
+        {
+          "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
           "type": "italic",
           "named": true
         },
@@ -439,6 +612,14 @@
         },
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
           "named": true
         }
       ]
@@ -469,7 +650,19 @@
           "named": true
         },
         {
+          "type": "footnote_desc",
+          "named": true
+        },
+        {
+          "type": "footnote_ref",
+          "named": true
+        },
+        {
           "type": "head2",
+          "named": true
+        },
+        {
+          "type": "include",
           "named": true
         },
         {
@@ -490,6 +683,14 @@
         },
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
           "named": true
         }
       ]
@@ -520,7 +721,19 @@
           "named": true
         },
         {
+          "type": "footnote_desc",
+          "named": true
+        },
+        {
+          "type": "footnote_ref",
+          "named": true
+        },
+        {
           "type": "head1",
+          "named": true
+        },
+        {
+          "type": "include",
           "named": true
         },
         {
@@ -542,6 +755,80 @@
         {
           "type": "text",
           "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "view",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exclamation",
+          "named": true
+        },
+        {
+          "type": "resource",
+          "named": true
+        },
+        {
+          "type": "square_close",
+          "named": true
+        },
+        {
+          "type": "square_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "view_label",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exclamation",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        },
+        {
+          "type": "resource",
+          "named": true
+        },
+        {
+          "type": "square_close",
+          "named": true
+        },
+        {
+          "type": "square_open",
+          "named": true
         }
       ]
     }
@@ -557,6 +844,10 @@
   {
     "type": "`",
     "named": false
+  },
+  {
+    "type": "caret",
+    "named": true
   },
   {
     "type": "code_inline_content",
@@ -576,6 +867,14 @@
   },
   {
     "type": "curly_open",
+    "named": true
+  },
+  {
+    "type": "equal",
+    "named": true
+  },
+  {
+    "type": "exclamation",
     "named": true
   },
   {
@@ -608,6 +907,10 @@
   },
   {
     "type": "paren_open",
+    "named": true
+  },
+  {
+    "type": "question",
     "named": true
   },
   {

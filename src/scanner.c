@@ -19,6 +19,11 @@ enum TokenType {
 	CURLY_CLOSE,
 	CODE_INLINE_CONTENT,
 
+	EXCLAMATION,
+	QUESTION,
+	CARET,
+	EQUAL,
+
 	SQUARE_OPEN,
 	SQUARE_CLOSE,
 	RESOURCE,
@@ -26,6 +31,9 @@ enum TokenType {
 	PAREN_OPEN,
 	PAREN_CLOSE,
 	LABEL,
+
+	INDENT_OPEN,
+	INDENT_CLOSE,
 
 	TEXT,
 };
@@ -97,6 +105,18 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 			lexer->result_symbol = NEWLINE_PLUS;
 			return true;
+		}
+	}
+
+	if (valid_symbols[INDENT_OPEN]) {
+		if (lexer->get_column(lexer) == 0) {
+			if (lexer->lookahead == '\t') {
+				lexer->advance(lexer, false);
+				context->indentLevel += 1;
+			}
+		}
+
+		if (context->indentLevel != 0) {
 		}
 	}
 
@@ -236,6 +256,66 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			return true;
 		}
 	}
+
+	if (valid_symbols[EXCLAMATION] || valid_symbols[TEXT]) {
+		if (lexer->lookahead == '!') {
+			lexer->advance(lexer, false);
+			lexer->mark_end(lexer);
+			if (!lexer->eof(lexer)) {
+				if (lexer->lookahead == '[') {
+					lexer->result_symbol = EXCLAMATION;
+					return true;
+				}
+			}
+			lexer->result_symbol = TEXT;
+			return true;
+		}
+	}
+
+	if (valid_symbols[QUESTION] || valid_symbols[TEXT]) {
+		if (lexer->lookahead == '?') {
+			lexer->advance(lexer, false);
+			lexer->mark_end(lexer);
+			if (!lexer->eof(lexer)) {
+				if (lexer->lookahead == '[') {
+					lexer->result_symbol = QUESTION;
+					return true;
+				}
+			}
+			lexer->result_symbol = TEXT;
+			return true;
+		}
+	}
+
+	if (valid_symbols[CARET] || valid_symbols[TEXT]) {
+		if (lexer->lookahead == '^') {
+			lexer->advance(lexer, false);
+			lexer->mark_end(lexer);
+			if (!lexer->eof(lexer)) {
+				if (lexer->lookahead == '[') {
+					lexer->result_symbol = CARET;
+					return true;
+				}
+			}
+			lexer->result_symbol = TEXT;
+			return true;
+		}
+	}
+
+	if (valid_symbols[EQUAL] || valid_symbols[TEXT]) {
+		if (lexer->lookahead == '=') {
+			lexer->advance(lexer, false);
+			lexer->mark_end(lexer);
+			if (!lexer->eof(lexer)) {
+				if (lexer->lookahead == '[') {
+					lexer->result_symbol = EQUAL;
+					return true;
+				}
+			}
+			lexer->result_symbol = TEXT;
+			return true;
+		}
+	}
 	
 	if (valid_symbols[SQUARE_OPEN]) {
 		if (lexer->lookahead == '[') {
@@ -353,14 +433,6 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 					lexer->result_symbol = TEXT;
 					return true;
 
-				case '(':
-					lexer->advance(lexer, false);
-					if (context->label) {
-						lexer->result_symbol = PAREN_OPEN;
-						return true;
-					}
-					break;
-				
 				default:
 					lexer->advance(lexer, false);
 					break;
