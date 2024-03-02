@@ -6,6 +6,9 @@ enum TokenType {
 	NEWLINE,
 	NEWLINE_PLUS,
 
+	// INDENT_OPEN,
+	// INDENT_CLOSE,
+
 	HEAD3,
 	HEAD2,
 	HEAD1,
@@ -32,15 +35,13 @@ enum TokenType {
 	PAREN_CLOSE,
 	LABEL,
 
-	INDENT_OPEN,
-	INDENT_CLOSE,
-
 	TEXT,
 };
 
 typedef struct {
 	unsigned int indentLevel;
 	unsigned int fenceDashCount;
+	bool indentOpening;
 	bool codeInline;
 	bool resource;
 	bool label;
@@ -49,6 +50,7 @@ typedef struct {
 void* tree_sitter_gularen_external_scanner_create() {
 	Context* context = malloc(sizeof(Context));
 	context->indentLevel = 0;
+	context->indentOpening = false;
 	context->fenceDashCount = 0;
 	context->codeInline = false;
 	context->resource = false;
@@ -105,18 +107,6 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 			lexer->result_symbol = NEWLINE_PLUS;
 			return true;
-		}
-	}
-
-	if (valid_symbols[INDENT_OPEN]) {
-		if (lexer->get_column(lexer) == 0) {
-			if (lexer->lookahead == '\t') {
-				lexer->advance(lexer, false);
-				context->indentLevel += 1;
-			}
-		}
-
-		if (context->indentLevel != 0) {
 		}
 	}
 
