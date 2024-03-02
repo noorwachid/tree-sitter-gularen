@@ -39,8 +39,8 @@ enum TokenType {
 };
 
 typedef struct {
-	unsigned int indentLevel;
-	unsigned int fenceDashCount;
+	int indentLevel;
+	int fenceDashCount;
 	bool indentOpening;
 	bool codeInline;
 	bool resource;
@@ -148,7 +148,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 				if (lexer->lookahead == '-') {
 					lexer->advance(lexer, false); 
-					unsigned int dashCount = 3;
+					int dashCount = 3;
 					while (!lexer->eof(lexer) && lexer->lookahead == '-') {
 						dashCount += 1;
 						lexer->advance(lexer, false);
@@ -182,8 +182,14 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 	}
 
 	if (valid_symbols[CODE_LINE] || valid_symbols[FENCE_CLOSE]) {
+		if (valid_symbols[FENCE_CLOSE] && lexer->eof(lexer)) {
+			lexer->result_symbol = FENCE_CLOSE;
+			context->fenceDashCount = 0;
+			return true;
+		}
+
 		if (lexer->lookahead == '-') {
-			unsigned int dashCount = 3;
+			int dashCount = 0;
 			while (!lexer->eof(lexer) && lexer->lookahead == '-') {
 				dashCount += 1;
 				lexer->advance(lexer, false);
@@ -194,9 +200,11 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 					lexer->advance(lexer, false);
 				}
 
-				lexer->result_symbol = FENCE_CLOSE;
-				context->fenceDashCount = 0;
-				return true;
+				if (dashCount == context->fenceDashCount) {
+					lexer->result_symbol = FENCE_CLOSE;
+					context->fenceDashCount = 0;
+					return true;
+				}
 			}
 		}
 
