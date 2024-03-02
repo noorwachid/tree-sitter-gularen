@@ -33,6 +33,8 @@ module.exports = grammar({
 			$.bold,
 			$.italic,
 			$.monospaced,
+			$.code_inline_lang,
+			$.code_inline,
 			$.text, 
 		),
 
@@ -41,6 +43,9 @@ module.exports = grammar({
 		bold: $ => seq('*', $._inline, '*'),
 		italic: $ => seq('_', $._inline, '_'),
 		monospaced: $ => seq('`', $._inline, '`'),
+
+		code_inline_lang: $ => seq($.curly_open, $.code_inline_content, $.curly_close, $.paren_open, $.label, $.paren_close),
+		code_inline: $ => seq($.curly_open, $.code_inline_content, $.curly_close),
 	},
 
 	externals: $ => [
@@ -53,6 +58,15 @@ module.exports = grammar({
 		$.fence_close,
 		$.code_lang,
 		$._code_line,
+
+		$.curly_open,
+		$.curly_close,
+		$.code_inline_content,
+
+		$.paren_open,
+		$.paren_close,
+		$.label,
+
 		$.text,
 	],
 

@@ -1,3 +1,7 @@
+{'hello world'}
+
+{console.log('hello world')}(js)
+
 ---
 hello world
 ---

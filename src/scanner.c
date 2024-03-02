@@ -12,18 +12,28 @@ enum TokenType {
 	FENCE_CLOSE,
 	CODE_LANG,
 	CODE_LINE,
+	CURLY_OPEN,
+	CURLY_CLOSE,
+	CODE_INLINE_CONTENT,
+	PAREN_OPEN,
+	PAREN_CLOSE,
+	LABEL,
 	TEXT,
 };
 
 typedef struct {
 	unsigned int indentLevel;
 	unsigned int fenceDashCount;
+	bool codeInline;
+	bool label;
 } Context;
 
 void* tree_sitter_gularen_external_scanner_create() {
 	Context* context = malloc(sizeof(Context));
 	context->indentLevel = 0;
 	context->fenceDashCount = 0;
+	context->codeInline = false;
+	context->label = false;
 	return context;
 }
 
@@ -181,12 +191,82 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		return true;
 	}
 
+	if (valid_symbols[CURLY_OPEN]) {
+		if (lexer->lookahead == '{') {
+			lexer->advance(lexer, false);
+			lexer->result_symbol = CURLY_OPEN;
+			context->codeInline = true;
+			return true;
+		}
+	}
+
+	if (valid_symbols[CODE_INLINE_CONTENT] || valid_symbols[CURLY_CLOSE]) {
+		if (context->codeInline) {
+			if (lexer->lookahead == '}') {
+				lexer->advance(lexer, false);
+				lexer->result_symbol = CURLY_CLOSE;
+				context->codeInline = false;
+				return true;
+			}
+
+			while (!lexer->eof(lexer) && lexer->lookahead != '}') {
+				lexer->advance(lexer, false);
+			}
+
+			lexer->mark_end(lexer);
+			if (!lexer->eof(lexer)) {
+				lexer->advance(lexer, false);
+				if (lexer->lookahead == '(') {
+					context->label = true;
+				}
+			}
+
+			lexer->result_symbol = CODE_INLINE_CONTENT;
+			return true;
+		}
+	}
+
+	if (valid_symbols[PAREN_OPEN]) {
+		if (lexer->lookahead == '(') {
+			lexer->advance(lexer, false);
+			lexer->result_symbol = PAREN_OPEN;
+			context->codeInline = true;
+			return true;
+		}
+	}
+
+	if (valid_symbols[LABEL] || valid_symbols[PAREN_CLOSE]) {
+		if (context->label) {
+			if (lexer->lookahead == ')') {
+				lexer->advance(lexer, false);
+				lexer->result_symbol = PAREN_CLOSE;
+				context->label = false;
+				return true;
+			}
+
+			while (!lexer->eof(lexer) && lexer->lookahead != ')') {
+				lexer->advance(lexer, false);
+			}
+
+			lexer->result_symbol = LABEL;
+			return true;
+		}
+	}
+
 	if (valid_symbols[TEXT]) {
 		switch (lexer->lookahead) {
 			case '*':
 			case '_':
 			case '`':
 			case '~':
+			case '<':
+			case '{':
+			case '[':
+			case '!':
+			case '?':
+			case '^':
+			case '=':
+			case '\n':
 				return false;
 		}
 
@@ -216,13 +296,23 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case '_':
 				case '`':
 				case '~':
-				// case '<':
-				// case '|':
-				// case '{':
-				// case '[':
+				case '<':
+				case '{':
+				case '[':
+				case '!':
+				case '?':
+				case '^':
+				case '=':
 				case '\n':
 					lexer->result_symbol = TEXT;
 					return true;
+
+				case '(':
+					printf("OVER HERE\n");
+					if (context->label) {
+						lexer->result_symbol = PAREN_OPEN;
+						return true;
+					}
 				
 				default:
 					lexer->advance(lexer, false);

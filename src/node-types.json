@@ -12,6 +12,14 @@
           "named": true
         },
         {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "code_inline_lang",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -40,6 +48,14 @@
       "types": [
         {
           "type": "bold",
+          "named": true
+        },
+        {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "code_inline_lang",
           "named": true
         },
         {
@@ -121,6 +137,64 @@
     "fields": {}
   },
   {
+    "type": "code_inline",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "code_inline_content",
+          "named": true
+        },
+        {
+          "type": "curly_close",
+          "named": true
+        },
+        {
+          "type": "curly_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "code_inline_lang",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "code_inline_content",
+          "named": true
+        },
+        {
+          "type": "curly_close",
+          "named": true
+        },
+        {
+          "type": "curly_open",
+          "named": true
+        },
+        {
+          "type": "label",
+          "named": true
+        },
+        {
+          "type": "paren_close",
+          "named": true
+        },
+        {
+          "type": "paren_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "document",
     "named": true,
     "fields": {},
@@ -168,6 +242,14 @@
           "named": true
         },
         {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "code_inline_lang",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -196,6 +278,14 @@
       "types": [
         {
           "type": "bold",
+          "named": true
+        },
+        {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "code_inline_lang",
           "named": true
         },
         {
@@ -230,6 +320,14 @@
           "named": true
         },
         {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "code_inline_lang",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -258,6 +356,14 @@
       "types": [
         {
           "type": "bold",
+          "named": true
+        },
+        {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "code_inline_lang",
           "named": true
         },
         {
@@ -296,6 +402,14 @@
           "named": true
         },
         {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "code_inline_lang",
+          "named": true
+        },
+        {
           "type": "comment",
           "named": true
         },
@@ -331,11 +445,23 @@
     "named": false
   },
   {
+    "type": "code_inline_content",
+    "named": true
+  },
+  {
     "type": "code_lang",
     "named": true
   },
   {
     "type": "comment",
+    "named": true
+  },
+  {
+    "type": "curly_close",
+    "named": true
+  },
+  {
+    "type": "curly_open",
     "named": true
   },
   {
@@ -356,6 +482,18 @@
   },
   {
     "type": "head3",
+    "named": true
+  },
+  {
+    "type": "label",
+    "named": true
+  },
+  {
+    "type": "paren_close",
+    "named": true
+  },
+  {
+    "type": "paren_open",
     "named": true
   },
   {
