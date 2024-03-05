@@ -5,7 +5,7 @@ Todo list:
 - [x] 02 style
 - [x] 03 heading
 - [x] 04 paragraph
-- [ ] 05 indentation
+- [x] 05 indentation
 - [ ] 06 break
 - [ ] 07 list
 - [ ] 08 table

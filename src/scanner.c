@@ -6,9 +6,6 @@ enum TokenType {
 	NEWLINE,
 	NEWLINE_PLUS,
 
-	// INDENT_OPEN,
-	// INDENT_CLOSE,
-
 	HEAD3,
 	HEAD2,
 	HEAD1,
@@ -110,20 +107,17 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		}
 	}
 
-	if (valid_symbols[HEAD3] || valid_symbols[HEAD2] || valid_symbols[HEAD1]) {
-		if (lexer->lookahead == '>') {
-			lexer->advance(lexer, false); 
+	if (lexer->get_column(lexer) == 0) {
+		while (!lexer->eof(lexer) && lexer->lookahead == '\t') {
+			lexer->advance(lexer, true);
+		}
 
-			if (lexer->lookahead == ' ') {
-				lexer->result_symbol = HEAD1;
-				return true;
-			}
-
+		if (valid_symbols[HEAD3] || valid_symbols[HEAD2] || valid_symbols[HEAD1]) {
 			if (lexer->lookahead == '>') {
 				lexer->advance(lexer, false); 
 
 				if (lexer->lookahead == ' ') {
-					lexer->result_symbol = HEAD2;
+					lexer->result_symbol = HEAD1;
 					return true;
 				}
 
@@ -131,43 +125,91 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 					lexer->advance(lexer, false); 
 
 					if (lexer->lookahead == ' ') {
-						lexer->result_symbol = HEAD3;
+						lexer->result_symbol = HEAD2;
 						return true;
+					}
+
+					if (lexer->lookahead == '>') {
+						lexer->advance(lexer, false); 
+
+						if (lexer->lookahead == ' ') {
+							lexer->result_symbol = HEAD3;
+							return true;
+						}
 					}
 				}
 			}
 		}
-	}
 
-	if (valid_symbols[FENCE_OPEN]) {
-		if (lexer->lookahead == '-') {
-			lexer->advance(lexer, false); 
-
+		if (valid_symbols[FENCE_OPEN]) {
 			if (lexer->lookahead == '-') {
 				lexer->advance(lexer, false); 
 
 				if (lexer->lookahead == '-') {
 					lexer->advance(lexer, false); 
-					int dashCount = 3;
-					while (!lexer->eof(lexer) && lexer->lookahead == '-') {
-						dashCount += 1;
+
+					if (lexer->lookahead == '-') {
+						lexer->advance(lexer, false); 
+						int dashCount = 3;
+						while (!lexer->eof(lexer) && lexer->lookahead == '-') {
+							dashCount += 1;
+							lexer->advance(lexer, false);
+						}
+
+						if (lexer->lookahead == ' ') {
+							lexer->advance(lexer, false);
+							lexer->result_symbol = FENCE_OPEN;
+							context->fenceDashCount = dashCount;
+							return true;
+						}
+
+						if (lexer->lookahead == '\n') {
+							lexer->result_symbol = FENCE_OPEN;
+							context->fenceDashCount = dashCount;
+							return true;
+						}
+					}
+				}
+			}
+		}
+
+		if (valid_symbols[CODE_LINE] || valid_symbols[FENCE_CLOSE]) {
+			if (valid_symbols[FENCE_CLOSE] && lexer->eof(lexer)) {
+				lexer->result_symbol = FENCE_CLOSE;
+				context->fenceDashCount = 0;
+				return true;
+			}
+
+			if (lexer->lookahead == '-') {
+				int dashCount = 0;
+				while (!lexer->eof(lexer) && lexer->lookahead == '-') {
+					dashCount += 1;
+					lexer->advance(lexer, false);
+				}
+
+				if (lexer->eof(lexer) || lexer->lookahead == '\n') {
+					while (!lexer->eof(lexer) && lexer->lookahead == '\n')  {
 						lexer->advance(lexer, false);
 					}
 
-					if (lexer->lookahead == ' ') {
-						lexer->advance(lexer, false);
-						lexer->result_symbol = FENCE_OPEN;
-						context->fenceDashCount = dashCount;
-						return true;
-					}
-
-					if (lexer->lookahead == '\n') {
-						lexer->result_symbol = FENCE_OPEN;
-						context->fenceDashCount = dashCount;
+					if (dashCount == context->fenceDashCount) {
+						lexer->result_symbol = FENCE_CLOSE;
+						context->fenceDashCount = 0;
 						return true;
 					}
 				}
 			}
+
+			while (!lexer->eof(lexer) && lexer->lookahead != '\n') {
+				lexer->advance(lexer, false);
+			}
+
+			if (lexer->lookahead == '\n') {
+				lexer->advance(lexer, false);
+			}
+
+			lexer->result_symbol = CODE_LINE;
+			return true;
 		}
 	}
 
@@ -179,45 +221,6 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			lexer->result_symbol = CODE_LANG;
 			return true;
 		}
-	}
-
-	if (valid_symbols[CODE_LINE] || valid_symbols[FENCE_CLOSE]) {
-		if (valid_symbols[FENCE_CLOSE] && lexer->eof(lexer)) {
-			lexer->result_symbol = FENCE_CLOSE;
-			context->fenceDashCount = 0;
-			return true;
-		}
-
-		if (lexer->lookahead == '-') {
-			int dashCount = 0;
-			while (!lexer->eof(lexer) && lexer->lookahead == '-') {
-				dashCount += 1;
-				lexer->advance(lexer, false);
-			}
-
-			if (lexer->eof(lexer) || lexer->lookahead == '\n') {
-				while (!lexer->eof(lexer) && lexer->lookahead == '\n')  {
-					lexer->advance(lexer, false);
-				}
-
-				if (dashCount == context->fenceDashCount) {
-					lexer->result_symbol = FENCE_CLOSE;
-					context->fenceDashCount = 0;
-					return true;
-				}
-			}
-		}
-
-		while (!lexer->eof(lexer) && lexer->lookahead != '\n') {
-			lexer->advance(lexer, false);
-		}
-
-		if (lexer->lookahead == '\n') {
-			lexer->advance(lexer, false);
-		}
-
-		lexer->result_symbol = CODE_LINE;
-		return true;
 	}
 
 	if (valid_symbols[CURLY_OPEN]) {
@@ -427,6 +430,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case '?':
 				case '^':
 				case '=':
+				case '\t':
 				case '\n':
 					lexer->result_symbol = TEXT;
 					return true;

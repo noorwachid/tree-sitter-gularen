@@ -209,6 +209,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "dinkus"
+        },
+        {
+          "type": "SYMBOL",
           "name": "bold"
         },
         {
@@ -257,6 +261,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "page_break"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_break"
+        },
+        {
+          "type": "SYMBOL",
           "name": "text"
         }
       ]
@@ -264,6 +276,18 @@
     "comment": {
       "type": "PATTERN",
       "value": "~.*"
+    },
+    "dinkus": {
+      "type": "STRING",
+      "value": "***"
+    },
+    "page_break": {
+      "type": "STRING",
+      "value": "<<<"
+    },
+    "line_break": {
+      "type": "STRING",
+      "value": "<<"
     },
     "bold": {
       "type": "SEQ",

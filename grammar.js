@@ -5,8 +5,6 @@ module.exports = grammar({
 		document: $ => repeat($._block),
 
 		_block: $ => choice(
-			// $.indent,
-
 			$.chapter,
 			$.section,
 			$.subsection,
@@ -16,8 +14,6 @@ module.exports = grammar({
 
 			$.paragraph,
 		),
-
-		// indent: $ => seq($.indent_open, repeat1($._block), $.indent_close),
 
 		chapter: $ => seq($.head3, repeat1($._inline), $._end_block),
 		section: $ => seq($.head2, repeat1($._inline), $._end_block),
@@ -34,6 +30,9 @@ module.exports = grammar({
 
 		_inline: $ => choice(
 			$.comment, 
+
+			$.dinkus,
+
 			$.bold,
 			$.italic,
 			$.monospaced,
@@ -51,10 +50,18 @@ module.exports = grammar({
 			$.link_label,
 			$.link,
 
+			$.page_break,
+			$.line_break,
+
 			$.text, 
 		),
 
 		comment: $ => /~.*/,
+
+		dinkus: $ => '***',
+
+		page_break: $ => '<<<',
+		line_break: $ => '<<',
 
 		bold: $ => seq('*', $._inline, '*'),
 		italic: $ => seq('_', $._inline, '_'),
@@ -78,9 +85,6 @@ module.exports = grammar({
 	externals: $ => [
 		$._newline,
 		$._newline_plus,
-
-		// $._indent_open,
-		// $._indent_close,
 
 		$.head3,
 		$.head2,
