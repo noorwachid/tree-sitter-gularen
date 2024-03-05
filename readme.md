@@ -1,5 +1,7 @@
 # Tree Sitter for Gularen Markup Language
 
+Tree sitter implementation for [Gularen markup language](https://github.com/noorwachid/gularen/)
+
 Todo list:
 - [x] 01 comment
 - [x] 02 style
