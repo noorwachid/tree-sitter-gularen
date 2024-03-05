@@ -10,6 +10,12 @@ enum TokenType {
 	HEAD2,
 	HEAD1,
 
+	BULLET,
+	INDEX,
+	BLANK,
+	V,
+	X,
+
 	FENCE_OPEN,
 	FENCE_CLOSE,
 	CODE_LANG,
@@ -82,14 +88,13 @@ bool parse_text(void* payload, TSLexer* lexer, const bool* valid_symbols) {
 bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, const bool* valid_symbols) {
 	Context* context = payload;
 
-	// if (valid_symbols[NEWLINE]) {
-	// 	if (lexer->eof(lexer)) {
-	// 		lexer->result_symbol = NEWLINE;
-	// 		return true;
-	// 	}
-	// }
-
 	if (valid_symbols[NEWLINE] || valid_symbols[NEWLINE_PLUS]) {
+
+		// if (lexer->eof(lexer)) {
+		// 	lexer->result_symbol = NEWLINE;
+		// 	return true;
+		// }
+
 		if (lexer->lookahead == '\n') {
 			unsigned int count = 0;
 			while (!lexer->eof(lexer) && lexer->lookahead == '\n') {
@@ -141,9 +146,33 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			}
 		}
 
-		if (valid_symbols[FENCE_OPEN]) {
+		if (valid_symbols[INDEX]) {
+			if (lexer->lookahead >= '0' && lexer->lookahead <= '9') {
+				while (!lexer->eof(lexer) && lexer->lookahead >= '0' && lexer->lookahead <= '9') {
+					lexer->advance(lexer, false);
+				}
+
+				if (!lexer->eof(lexer) && lexer->lookahead == '.') {
+					lexer->advance(lexer, false);
+
+					if (!lexer->eof(lexer) && lexer->lookahead == ' ') {
+						lexer->advance(lexer, false);
+						lexer->result_symbol = INDEX;
+						return true;
+					}
+				}
+			}
+		}
+
+		if (valid_symbols[FENCE_OPEN] || valid_symbols[BULLET]) {
 			if (lexer->lookahead == '-') {
 				lexer->advance(lexer, false); 
+
+				if (lexer->lookahead == ' ') {
+					lexer->advance(lexer, false);
+					lexer->result_symbol = BULLET;
+					return true;
+				}
 
 				if (lexer->lookahead == '-') {
 					lexer->advance(lexer, false); 
@@ -327,8 +356,30 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		}
 	}
 
-	if (valid_symbols[RESOURCE] || valid_symbols[SQUARE_CLOSE]) {
+	if (valid_symbols[RESOURCE] || valid_symbols[BLANK] || valid_symbols[V] || valid_symbols[X] || valid_symbols[SQUARE_CLOSE]) {
 		if (context->resource) {
+			if (lexer->lookahead == ' ') {
+				lexer->advance(lexer, false);
+				if (lexer->lookahead == ']') {
+					lexer->result_symbol = BLANK;
+					return true;
+				}
+			}
+			if (lexer->lookahead == 'v') {
+				lexer->advance(lexer, false);
+				if (lexer->lookahead == ']') {
+					lexer->result_symbol = V;
+					return true;
+				}
+			}
+			if (lexer->lookahead == 'x') {
+				lexer->advance(lexer, false);
+				if (lexer->lookahead == ']') {
+					lexer->result_symbol = X;
+					return true;
+				}
+			}
+
 			if (lexer->lookahead == ']') {
 				lexer->advance(lexer, false);
 				lexer->result_symbol = SQUARE_CLOSE;
@@ -429,8 +480,6 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case '!':
 				case '?':
 				case '^':
-				case '=':
-				case '\t':
 				case '\n':
 					lexer->result_symbol = TEXT;
 					return true;

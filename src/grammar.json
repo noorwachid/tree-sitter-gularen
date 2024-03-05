@@ -33,6 +33,18 @@
         },
         {
           "type": "SYMBOL",
+          "name": "item"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "numbered_item"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "todo_item"
+        },
+        {
+          "type": "SYMBOL",
           "name": "paragraph"
         }
       ]
@@ -83,6 +95,87 @@
         {
           "type": "SYMBOL",
           "name": "head1"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_inline"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_end_block"
+        }
+      ]
+    },
+    "item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "bullet"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_inline"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_end_block"
+        }
+      ]
+    },
+    "numbered_item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "index"
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_inline"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_end_block"
+        }
+      ]
+    },
+    "todo_item": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "square_open"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "blank"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "v"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "x"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "square_close"
         },
         {
           "type": "REPEAT1",
@@ -578,6 +671,26 @@
     {
       "type": "SYMBOL",
       "name": "head1"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "bullet"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "index"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "blank"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "v"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "x"
     },
     {
       "type": "SYMBOL",

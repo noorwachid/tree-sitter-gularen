@@ -4,6 +4,11 @@
 (section) @markup.heading.2
 (subsection) @markup.heading.3
 
+(bullet) @keyword
+(index) @number
+(v) @diff.plus
+(x) @diff.minus
+
 (bold) @markup.strong
 (italic) @markup.italic
 (monospaced) @string

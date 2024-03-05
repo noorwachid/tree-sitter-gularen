@@ -12,12 +12,22 @@ module.exports = grammar({
 			$.code_block_lang,
 			$.code_block,
 
+			$.item,
+			$.numbered_item,
+			$.todo_item,
+
 			$.paragraph,
 		),
 
 		chapter: $ => seq($.head3, repeat1($._inline), $._end_block),
 		section: $ => seq($.head2, repeat1($._inline), $._end_block),
 		subsection: $ => seq($.head1, repeat1($._inline), $._end_block),
+
+		item: $ => seq($.bullet, repeat1($._inline), $._end_block),
+
+		numbered_item: $ => seq($.index, repeat1($._inline), $._end_block),
+
+		todo_item: $ => seq($.square_open, choice($.blank, $.v, $.x), $.square_close, repeat1($._inline), $._end_block),
 
 		code_block_lang: $ => seq($.fence_open, $.code_lang, $._newline, $.code_content, $.fence_close),
 		code_block: $ => seq($.fence_open, $._newline, $.code_content, $.fence_close),
@@ -89,6 +99,12 @@ module.exports = grammar({
 		$.head3,
 		$.head2,
 		$.head1,
+
+		$.bullet,
+		$.index,
+		$.blank,
+		$.v,
+		$.x,
 
 		$.fence_open,
 		$.fence_close,

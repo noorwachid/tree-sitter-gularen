@@ -6,8 +6,8 @@ Todo list:
 - [x] 03 heading
 - [x] 04 paragraph
 - [x] 05 indentation
-- [ ] 06 break
-- [ ] 07 list
+- [x] 06 break
+- [x] 07 list
 - [ ] 08 table
 - [x] 09 code
 - [x] 0A linker
