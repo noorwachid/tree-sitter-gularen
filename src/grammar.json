@@ -362,6 +362,14 @@
         },
         {
           "type": "SYMBOL",
+          "name": "admon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "datetime"
+        },
+        {
+          "type": "SYMBOL",
           "name": "text"
         }
       ]
@@ -381,6 +389,56 @@
     "line_break": {
       "type": "STRING",
       "value": "<<"
+    },
+    "admon": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "angle_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "admon_label"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "angle_close"
+        }
+      ]
+    },
+    "datetime": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "angle_open"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "datetime_content"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "angle_close"
+        }
+      ]
+    },
+    "angle_open": {
+      "type": "STRING",
+      "value": "<"
+    },
+    "angle_close": {
+      "type": "STRING",
+      "value": ">"
+    },
+    "admon_label": {
+      "type": "PATTERN",
+      "value": "[A-Za-z][^>]+"
+    },
+    "datetime_content": {
+      "type": "PATTERN",
+      "value": "[0-9- :]+"
     },
     "bold": {
       "type": "SEQ",

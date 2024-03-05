@@ -17,5 +17,5 @@ Todo list:
 - [ ] 0E punctuation
 - [ ] 0F emoji
 - [ ] 10 blockquote
-- [ ] 11 admonition
-- [ ] 11 datetime
+- [x] 11 admonition
+- [x] 11 datetime

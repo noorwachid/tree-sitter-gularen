@@ -63,6 +63,9 @@ module.exports = grammar({
 			$.page_break,
 			$.line_break,
 
+			$.admon,
+			$.datetime,
+
 			$.text, 
 		),
 
@@ -72,6 +75,14 @@ module.exports = grammar({
 
 		page_break: $ => '<<<',
 		line_break: $ => '<<',
+		admon: $ => seq($.angle_open, $.admon_label, $.angle_close),
+		datetime: $ => seq($.angle_open, $.datetime_content, $.angle_close),
+
+		angle_open: $ => '<',
+		angle_close: $ => '>',
+
+		admon_label: $ => /[A-Za-z][^>]+/,
+		datetime_content: $ => /[0-9- :]+/,
 
 		bold: $ => seq('*', $._inline, '*'),
 		italic: $ => seq('_', $._inline, '_'),

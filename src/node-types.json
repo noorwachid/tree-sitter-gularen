@@ -1,5 +1,28 @@
 [
   {
+    "type": "admon",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "admon_label",
+          "named": true
+        },
+        {
+          "type": "angle_close",
+          "named": true
+        },
+        {
+          "type": "angle_open",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "bold",
     "named": true,
     "fields": {},
@@ -7,6 +30,10 @@
       "multiple": false,
       "required": true,
       "types": [
+        {
+          "type": "admon",
+          "named": true
+        },
         {
           "type": "bold",
           "named": true
@@ -21,6 +48,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -87,6 +118,10 @@
       "required": true,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -100,6 +135,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -275,6 +314,29 @@
     }
   },
   {
+    "type": "datetime",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "angle_close",
+          "named": true
+        },
+        {
+          "type": "angle_open",
+          "named": true
+        },
+        {
+          "type": "datetime_content",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "document",
     "named": true,
     "fields": {},
@@ -411,6 +473,10 @@
       "required": true,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -424,6 +490,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -490,6 +560,10 @@
       "required": true,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -507,6 +581,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -631,6 +709,10 @@
       "required": true,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -644,6 +726,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -710,6 +796,10 @@
       "required": true,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -723,6 +813,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -793,6 +887,10 @@
       "required": false,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -806,6 +904,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -872,6 +974,10 @@
       "required": true,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -885,6 +991,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -955,6 +1065,10 @@
       "required": true,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -968,6 +1082,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -1038,6 +1156,10 @@
       "required": true,
       "types": [
         {
+          "type": "admon",
+          "named": true
+        },
+        {
           "type": "blank",
           "named": true
         },
@@ -1055,6 +1177,10 @@
         },
         {
           "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
           "named": true
         },
         {
@@ -1207,6 +1333,18 @@
     "named": false
   },
   {
+    "type": "admon_label",
+    "named": true
+  },
+  {
+    "type": "angle_close",
+    "named": true
+  },
+  {
+    "type": "angle_open",
+    "named": true
+  },
+  {
     "type": "blank",
     "named": true
   },
@@ -1236,6 +1374,10 @@
   },
   {
     "type": "curly_open",
+    "named": true
+  },
+  {
+    "type": "datetime_content",
     "named": true
   },
   {

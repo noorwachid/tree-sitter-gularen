@@ -13,6 +13,10 @@
 (italic) @markup.italic
 (monospaced) @string
 
+(line_break) @diff.minus
+(page_break) @diff.minus
+(dinkus) @keyword
+
 (code_inline) @markup.raw
 
 (code_block (code_content) @markup.raw.block)
@@ -22,12 +26,16 @@
 (fence_close) @punctuation
 
 (label) @markup.link.label
+(admon_label) @function
+(datetime_content) @string.escape
 
 (exclamation) @punctuation
 (question) @punctuation
 (caret) @punctuation
 (equal) @punctuation
 
+(angle_open) @punctuation
+(angle_close) @punctuation
 (square_open) @punctuation
 (square_close) @punctuation
 (curly_open) @punctuation
