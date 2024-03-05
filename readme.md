@@ -2,6 +2,8 @@
 
 Tree sitter implementation for [Gularen markup language](https://github.com/noorwachid/gularen/)
 
+<img width="1426" alt="Screenshot 2024-03-05 at 17 26 30" src="https://github.com/noorwachid/tree-sitter-gularen/assets/42460975/723c6991-6048-4d06-b9f1-f2d6ba8f3b82">
+
 ## How To Install
 ### Neovim
 1. Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/) plugin
