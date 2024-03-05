@@ -1,0 +1,45 @@
+=====
+Comment
+=====
+Now you see me, ~ now you don't.
+-----
+(document
+  (paragraph
+    (text)
+    (comment)))
+
+
+=====
+Style
+=====
+*bold* _italic_ `monospace`
+-----
+(document
+  (paragraph
+	(bold
+	  (text))
+	(text)
+	(italic
+	  (text))
+	(text)
+	(monospaced
+	  (text))))
+
+=====
+Break
+=====
+hello << world
+
+<<<
+
+***
+---
+(document
+  (paragraph
+	(text)
+	(line_break)
+	(text))
+  (paragraph
+	(page_break))
+  (paragraph
+	(dinkus)))
