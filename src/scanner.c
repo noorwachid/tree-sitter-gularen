@@ -44,6 +44,7 @@ enum TokenType {
 typedef struct {
 	int indentLevel;
 	int fenceDashCount;
+	bool firstLine;
 	bool indentOpening;
 	bool codeInline;
 	bool resource;
@@ -52,6 +53,7 @@ typedef struct {
 
 void* tree_sitter_gularen_external_scanner_create() {
 	Context* context = malloc(sizeof(Context));
+	context->firstLine = true;
 	context->indentLevel = 0;
 	context->indentOpening = false;
 	context->fenceDashCount = 0;
@@ -99,16 +101,20 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			unsigned int count = 0;
 			while (!lexer->eof(lexer) && lexer->lookahead == '\n') {
 				count += 1;
-				lexer->advance(lexer, false);
+				lexer->advance(lexer, !context->firstLine);
 			}
 
-			if (count == 1) {
-				lexer->result_symbol = NEWLINE;
+			if (context->firstLine) {
+				context->firstLine = false;
+			} else {
+				if (count == 1) {
+					lexer->result_symbol = NEWLINE;
+					return true;
+				}
+
+				lexer->result_symbol = NEWLINE_PLUS;
 				return true;
 			}
-
-			lexer->result_symbol = NEWLINE_PLUS;
-			return true;
 		}
 	}
 
