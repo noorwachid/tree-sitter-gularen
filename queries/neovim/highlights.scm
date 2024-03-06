@@ -3,6 +3,7 @@
 (chapter) @markup.heading.1
 (section) @markup.heading.2
 (subsection) @markup.heading.3
+(subtitle) @operator
 
 (bullet) @keyword
 (index) @number
@@ -21,27 +22,27 @@
 
 (code_block (code_content) @markup.raw.block)
 
-(code_lang) @punctuation
-(fence_open) @punctuation
-(fence_close) @punctuation
+(code_lang) @operator
+(fence_open) @operator
+(fence_close) @operator
 
 (label) @markup.link.label
 (admon_label) @function
 (datetime_content) @string.escape
 
-(exclamation) @punctuation
-(question) @punctuation
-(caret) @punctuation
-(equal) @punctuation
+(exclamation) @operator
+(question) @operator
+(caret) @operator
+(equal) @operator
 
-(angle_open) @punctuation
-(angle_close) @punctuation
-(square_open) @punctuation
-(square_close) @punctuation
-(curly_open) @punctuation
-(curly_close) @punctuation
-(paren_open) @punctuation
-(paren_close) @punctuation
+(angle_open) @operator
+(angle_close) @operator
+(square_open) @operator
+(square_close) @operator
+(curly_open) @operator
+(curly_close) @operator
+(paren_open) @operator
+(paren_close) @operator
 
 (footnote_desc (resource) @function)
 (resource) @markup.link.url
