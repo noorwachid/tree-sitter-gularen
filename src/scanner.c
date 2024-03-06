@@ -9,6 +9,7 @@ enum TokenType {
 	HEAD3,
 	HEAD2,
 	HEAD1,
+	HEAD0,
 
 	BULLET,
 	INDEX,
@@ -44,6 +45,7 @@ enum TokenType {
 typedef struct {
 	int indentLevel;
 	int fenceDashCount;
+	bool nextAsSubtitle;
 	bool firstLine;
 	bool indentOpening;
 	bool codeInline;
@@ -54,6 +56,7 @@ typedef struct {
 void* tree_sitter_gularen_external_scanner_create() {
 	Context* context = malloc(sizeof(Context));
 	context->firstLine = true;
+	context->nextAsSubtitle = false;
 	context->indentLevel = 0;
 	context->indentOpening = false;
 	context->fenceDashCount = 0;
@@ -98,13 +101,14 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		// }
 
 		if (lexer->lookahead == '\n') {
+			bool firstColumn = lexer->get_column(lexer) == 0;
 			unsigned int count = 0;
 			while (!lexer->eof(lexer) && lexer->lookahead == '\n') {
 				count += 1;
 				lexer->advance(lexer, !context->firstLine);
 			}
 
-			if (context->firstLine) {
+			if (firstColumn && context->firstLine) {
 				context->firstLine = false;
 			} else {
 				if (count == 1) {
@@ -113,6 +117,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				}
 
 				lexer->result_symbol = NEWLINE_PLUS;
+				context->nextAsSubtitle = false;
 				return true;
 			}
 		}
@@ -128,6 +133,13 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				lexer->advance(lexer, false); 
 
 				if (lexer->lookahead == ' ') {
+					if (context->nextAsSubtitle) {
+						context->nextAsSubtitle = false;
+						lexer->result_symbol = HEAD0;
+						return true;
+					}
+
+					context->nextAsSubtitle = true;
 					lexer->result_symbol = HEAD1;
 					return true;
 				}
@@ -137,6 +149,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 					if (lexer->lookahead == ' ') {
 						lexer->result_symbol = HEAD2;
+						context->nextAsSubtitle = true;
 						return true;
 					}
 
@@ -144,6 +157,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 						lexer->advance(lexer, false); 
 
 						if (lexer->lookahead == ' ') {
+							context->nextAsSubtitle = true;
 							lexer->result_symbol = HEAD3;
 							return true;
 						}

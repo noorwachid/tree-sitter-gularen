@@ -377,6 +377,10 @@
           "named": true
         },
         {
+          "type": "subtitle",
+          "named": true
+        },
+        {
           "type": "todo_item",
           "named": true
         }
@@ -1148,6 +1152,97 @@
     }
   },
   {
+    "type": "subtitle",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "admon",
+          "named": true
+        },
+        {
+          "type": "bold",
+          "named": true
+        },
+        {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "code_inline_lang",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
+          "named": true
+        },
+        {
+          "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "footnote_desc",
+          "named": true
+        },
+        {
+          "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "head0",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
+          "type": "italic",
+          "named": true
+        },
+        {
+          "type": "line_break",
+          "named": true
+        },
+        {
+          "type": "link",
+          "named": true
+        },
+        {
+          "type": "link_label",
+          "named": true
+        },
+        {
+          "type": "monospaced",
+          "named": true
+        },
+        {
+          "type": "page_break",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "todo_item",
     "named": true,
     "fields": {},
@@ -1398,6 +1493,10 @@
   },
   {
     "type": "fence_open",
+    "named": true
+  },
+  {
+    "type": "head0",
     "named": true
   },
   {

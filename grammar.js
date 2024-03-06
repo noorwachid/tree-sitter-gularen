@@ -8,6 +8,7 @@ module.exports = grammar({
 			$.chapter,
 			$.section,
 			$.subsection,
+			$.subtitle,
 
 			$.code_block_lang,
 			$.code_block,
@@ -22,6 +23,7 @@ module.exports = grammar({
 		chapter: $ => seq($.head3, repeat1($._inline), $._end_block),
 		section: $ => seq($.head2, repeat1($._inline), $._end_block),
 		subsection: $ => seq($.head1, repeat1($._inline), $._end_block),
+		subtitle: $ => seq($.head0, repeat1($._inline), $._end_block),
 
 		item: $ => seq($.bullet, repeat1($._inline), $._end_block),
 
@@ -110,6 +112,7 @@ module.exports = grammar({
 		$.head3,
 		$.head2,
 		$.head1,
+		$.head0,
 
 		$.bullet,
 		$.index,
