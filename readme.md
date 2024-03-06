@@ -43,6 +43,6 @@ Todo list:
 - [x] 0D footnote
 - [ ] 0E punctuation
 - [ ] 0F emoji
-- [ ] 10 blockquote
+- [x] 10 blockquote
 - [x] 11 admonition
 - [x] 11 datetime

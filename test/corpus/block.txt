@@ -8,13 +8,11 @@ List
 
 ---|||
 (document
-  (item
+  (list
 	(bullet)
-	(text))
-  (item
+	(text)
 	(bullet)
-	(text))
-  (item
+	(text)
 	(bullet)
 	(text)))
 
@@ -27,13 +25,11 @@ Numbered List
 
 ---|||
 (document
-  (numbered_item
+  (numbered_list
 	(index)
-	(text))
-  (numbered_item
+	(text)
 	(index)
-	(text))
-  (numbered_item
+	(text)
 	(index)
 	(text)))
 
@@ -46,17 +42,15 @@ Todo List
 
 ---|||
 (document
-  (todo_item
+  (todo_list
 	(square_open)
 	(blank)
 	(square_close)
-	(text))
-  (todo_item
+	(text)
 	(square_open)
 	(v)
 	(square_close)
-	(text))
-  (todo_item
+	(text)
 	(square_open)
 	(x)
 	(square_close)
@@ -91,3 +85,15 @@ print("hello world")
 	(code_lang)
 	(code_content)
 	(fence_close)))
+
+
+=====|||
+Blockquote
+=====|||
+/ blockquote
+
+---|||
+(document
+  (blockquote
+	(slash)
+	(text)))

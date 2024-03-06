@@ -13,9 +13,11 @@ module.exports = grammar({
 			$.code_block_lang,
 			$.code_block,
 
-			$.item,
-			$.numbered_item,
-			$.todo_item,
+			$.list,
+			$.numbered_list,
+			$.todo_list,
+
+			$.blockquote,
 
 			$.paragraph,
 		),
@@ -25,11 +27,13 @@ module.exports = grammar({
 		subsection: $ => seq($.head1, repeat1($._inline), $._end_block),
 		subtitle: $ => seq($.head0, repeat1($._inline), $._end_block),
 
-		item: $ => seq($.bullet, repeat1($._inline), $._end_block),
+		list: $ => prec.right(repeat1(seq($.bullet, repeat1($._inline), $._end_block))),
 
-		numbered_item: $ => seq($.index, repeat1($._inline), $._end_block),
+		numbered_list: $ => prec.right(repeat1(seq($.index, repeat1($._inline), $._end_block))),
 
-		todo_item: $ => seq($.square_open, choice($.blank, $.v, $.x), $.square_close, repeat1($._inline), $._end_block),
+		todo_list: $ => prec.right(repeat1(seq($.square_open, choice($.blank, $.v, $.x), $.square_close, repeat1($._inline), $._end_block))),
+
+		blockquote: $ => prec.right(repeat1(seq($.slash, repeat1($._inline), $._end_block))),
 
 		code_block_lang: $ => seq($.fence_open, $.code_lang, $._newline, $.code_content, $.fence_close),
 		code_block: $ => seq($.fence_open, $._newline, $.code_content, $.fence_close),
@@ -119,6 +123,8 @@ module.exports = grammar({
 		$.blank,
 		$.v,
 		$.x,
+
+		$.slash,
 
 		$.fence_open,
 		$.fence_close,

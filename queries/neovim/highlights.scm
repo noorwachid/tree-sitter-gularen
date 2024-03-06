@@ -43,6 +43,9 @@
 (curly_close) @operator
 (paren_open) @operator
 (paren_close) @operator
+(slash) @operator
 
 (footnote_desc (resource) @function)
 (resource) @markup.link.url
+
+(blockquote) @markup.quote
