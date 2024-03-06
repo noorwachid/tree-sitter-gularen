@@ -123,7 +123,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			lexer->advance(lexer, true);
 		}
 
-		if (valid_symbols[HEAD3] || valid_symbols[HEAD2] || valid_symbols[HEAD1]) {
+		if (valid_symbols[HEAD3] || valid_symbols[HEAD2] || valid_symbols[HEAD1] || valid_symbols[TEXT]) {
 			if (lexer->lookahead == '>') {
 				lexer->advance(lexer, false); 
 
@@ -152,7 +152,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			}
 		}
 
-		if (valid_symbols[INDEX]) {
+		if (valid_symbols[INDEX] || valid_symbols[TEXT]) {
 			if (lexer->lookahead >= '0' && lexer->lookahead <= '9') {
 				while (!lexer->eof(lexer) && lexer->lookahead >= '0' && lexer->lookahead <= '9') {
 					lexer->advance(lexer, false);
@@ -170,7 +170,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			}
 		}
 
-		if (valid_symbols[FENCE_OPEN] || valid_symbols[BULLET]) {
+		if (valid_symbols[FENCE_OPEN] || valid_symbols[BULLET] || valid_symbols[TEXT]) {
 			if (lexer->lookahead == '-') {
 				lexer->advance(lexer, false); 
 
@@ -486,6 +486,9 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case '!':
 				case '?':
 				case '^':
+					lexer->result_symbol = TEXT;
+					return true;
+
 				case '\n':
 					lexer->result_symbol = TEXT;
 					return true;
