@@ -24,7 +24,7 @@
 (fence_open) @operator
 (fence_close) @operator
 
-(label) @markup.link.label
+(link_label (label) @markup.link.url)
 (admon_label) @function
 (datetime_content) @string.escape
 
