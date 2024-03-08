@@ -382,6 +382,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "annotation"
+        },
+        {
+          "type": "SYMBOL",
           "name": "dinkus"
         },
         {
@@ -464,7 +468,44 @@
     },
     "comment": {
       "type": "PATTERN",
-      "value": "~.*"
+      "value": "~[^~]*"
+    },
+    "annotation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "~"
+        },
+        {
+          "type": "STRING",
+          "value": "~"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_key"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "annotation_value"
+        }
+      ]
+    },
+    "annotation_key": {
+      "type": "PATTERN",
+      "value": "[0-9A-Za-z-]+"
+    },
+    "annotation_colon": {
+      "type": "STRING",
+      "value": ":"
+    },
+    "annotation_value": {
+      "type": "PATTERN",
+      "value": ".*"
     },
     "dinkus": {
       "type": "STRING",

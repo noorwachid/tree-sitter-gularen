@@ -48,6 +48,7 @@ module.exports = grammar({
 
 		_inline: $ => choice(
 			$.comment, 
+			$.annotation,
 
 			$.dinkus,
 
@@ -80,7 +81,11 @@ module.exports = grammar({
 			$.text, 
 		),
 
-		comment: $ => /~.*/,
+		comment: $ => /~[^~]*/,
+		annotation: $ => seq('~', '~', $.annotation_key, $.annotation_colon, $.annotation_value),
+		annotation_key: $ => /[0-9A-Za-z-]+/,
+		annotation_colon: $ => ':',
+		annotation_value: $ => /.*/,
 
 		dinkus: $ => '***',
 

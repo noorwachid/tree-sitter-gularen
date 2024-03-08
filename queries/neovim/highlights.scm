@@ -1,5 +1,3 @@
-(comment) @comment
-
 (chapter) @markup.heading.1
 (section) @markup.heading.2
 (subsection) @markup.heading.3
@@ -44,6 +42,12 @@
 (paren_open) @operator
 (paren_close) @operator
 (slash) @operator
+
+(comment) @comment
+(annotation) @comment
+(annotation_key) @annotation
+(annotation_colon) @operator
+(annotation_value) @string
 
 (footnote_desc (resource) @function)
 (resource) @markup.link.url

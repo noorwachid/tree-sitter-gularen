@@ -23,6 +23,29 @@
     }
   },
   {
+    "type": "annotation",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "annotation_colon",
+          "named": true
+        },
+        {
+          "type": "annotation_key",
+          "named": true
+        },
+        {
+          "type": "annotation_value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "blockquote",
     "named": true,
     "fields": {},
@@ -36,6 +59,10 @@
         },
         {
           "type": "admon",
+          "named": true
+        },
+        {
+          "type": "annotation",
           "named": true
         },
         {
@@ -138,6 +165,10 @@
           "named": true
         },
         {
+          "type": "annotation",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -230,6 +261,10 @@
         },
         {
           "type": "admon",
+          "named": true
+        },
+        {
+          "type": "annotation",
           "named": true
         },
         {
@@ -604,6 +639,10 @@
           "named": true
         },
         {
+          "type": "annotation",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -757,6 +796,10 @@
           "named": true
         },
         {
+          "type": "annotation",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -856,6 +899,10 @@
           "named": true
         },
         {
+          "type": "annotation",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -948,6 +995,10 @@
         },
         {
           "type": "admon",
+          "named": true
+        },
+        {
+          "type": "annotation",
           "named": true
         },
         {
@@ -1050,6 +1101,10 @@
           "named": true
         },
         {
+          "type": "annotation",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -1142,6 +1197,10 @@
         },
         {
           "type": "admon",
+          "named": true
+        },
+        {
+          "type": "annotation",
           "named": true
         },
         {
@@ -1244,6 +1303,10 @@
           "named": true
         },
         {
+          "type": "annotation",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -1343,6 +1406,10 @@
           "named": true
         },
         {
+          "type": "annotation",
+          "named": true
+        },
+        {
           "type": "bold",
           "named": true
         },
@@ -1439,6 +1506,10 @@
         },
         {
           "type": "admon",
+          "named": true
+        },
+        {
+          "type": "annotation",
           "named": true
         },
         {
@@ -1635,6 +1706,18 @@
     "named": true
   },
   {
+    "type": "annotation_colon",
+    "named": true
+  },
+  {
+    "type": "annotation_key",
+    "named": true
+  },
+  {
+    "type": "annotation_value",
+    "named": true
+  },
+  {
     "type": "blank",
     "named": true
   },
@@ -1765,5 +1848,9 @@
   {
     "type": "x",
     "named": true
+  },
+  {
+    "type": "~",
+    "named": false
   }
 ]
