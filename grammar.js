@@ -20,6 +20,8 @@ module.exports = grammar({
 			$.blockquote,
 
 			$.paragraph,
+
+			$._newline_plus,
 		),
 
 		chapter: $ => seq($.head3, repeat1($._inline), $._end_block),
@@ -71,6 +73,9 @@ module.exports = grammar({
 
 			$.admon,
 			$.datetime,
+
+			$.account_tag,
+			$.hash_tag,
 
 			$.text, 
 		),
@@ -147,6 +152,9 @@ module.exports = grammar({
 		$.paren_open,
 		$.paren_close,
 		$.label,
+
+		$.account_tag,
+		$.hash_tag,
 
 		$.text,
 	],

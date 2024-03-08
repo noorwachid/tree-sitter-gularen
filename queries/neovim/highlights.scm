@@ -47,5 +47,7 @@
 
 (footnote_desc (resource) @function)
 (resource) @markup.link.url
+(account_tag) @markup.link.url
+(hash_tag) @markup.link.url
 
 (blockquote) @markup.quote

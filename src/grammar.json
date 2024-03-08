@@ -54,6 +54,10 @@
         {
           "type": "SYMBOL",
           "name": "paragraph"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_newline_plus"
         }
       ]
     },
@@ -443,6 +447,14 @@
         {
           "type": "SYMBOL",
           "name": "datetime"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "account_tag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hash_tag"
         },
         {
           "type": "SYMBOL",
@@ -901,6 +913,14 @@
     {
       "type": "SYMBOL",
       "name": "label"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "account_tag"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "hash_tag"
     },
     {
       "type": "SYMBOL",

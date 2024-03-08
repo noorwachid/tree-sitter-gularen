@@ -43,3 +43,24 @@ hello << world
 	(page_break))
   (paragraph
 	(dinkus)))
+
+====
+Account Tag
+====
+@accountTag email@email.com
+
+---
+(document
+  (paragraph
+    (account_tag)
+	(text)))
+
+====
+Hash Tag
+====
+#hashTag
+
+---
+(document
+  (paragraph
+    (hash_tag)))

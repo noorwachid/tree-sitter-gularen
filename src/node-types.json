@@ -31,6 +31,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -64,6 +68,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -122,6 +130,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -155,6 +167,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -209,6 +225,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -242,6 +262,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -572,6 +596,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -605,6 +633,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -717,6 +749,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -754,6 +790,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -808,6 +848,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -841,6 +885,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -895,6 +943,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -928,6 +980,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -986,6 +1042,10 @@
       "required": false,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -1019,6 +1079,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -1073,6 +1137,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -1106,6 +1174,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -1164,6 +1236,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -1197,6 +1273,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -1255,6 +1335,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -1288,6 +1372,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -1346,6 +1434,10 @@
       "required": true,
       "types": [
         {
+          "type": "account_tag",
+          "named": true
+        },
+        {
           "type": "admon",
           "named": true
         },
@@ -1383,6 +1475,10 @@
         },
         {
           "type": "footnote_ref",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
           "named": true
         },
         {
@@ -1523,6 +1619,10 @@
     "named": false
   },
   {
+    "type": "account_tag",
+    "named": true
+  },
+  {
     "type": "admon_label",
     "named": true
   },
@@ -1588,6 +1688,10 @@
   },
   {
     "type": "fence_open",
+    "named": true
+  },
+  {
+    "type": "hash_tag",
     "named": true
   },
   {
