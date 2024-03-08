@@ -9,18 +9,18 @@ Tree sitter implementation for [Gularen markup language](https://github.com/noor
 1. Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/) plugin
 2. Clone this repo
 3. Add this code to your `init.lua` 
-  ```lua
-  local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-  parser_config.gularen = {
-    install_info = {
-      url = "~/location-of-cloned-repo/tree-sitter-gularen",
-      files = {"src/parser.c", "src/scanner.c"},
-      generate_requires_npm = false,
-      requires_generate_from_grammar = false,
-    },
-    filetype = "gularen",
-  }
-  ```
+   ```lua
+   local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+   parser_config.gularen = {
+     install_info = {
+       url = "~/location-of-cloned-repo/tree-sitter-gularen",
+       files = {"src/parser.c", "src/scanner.c"},
+       generate_requires_npm = false,
+       requires_generate_from_grammar = false,
+     },
+     filetype = "gularen",
+   }
+   ```
 4. Reload your `init.lua` with `:so ~/.config/nvim/init.lua`
 5. Install the parser with `:TSInstall gularen`
 6. Copy `queries/neovim/*.scm` to `~/.config/nvim/queries/gularen/`
@@ -46,4 +46,6 @@ Todo list:
 - [ ] 0F emoji
 - [x] 10 blockquote
 - [x] 11 admonition
-- [x] 11 datetime
+- [x] 12 datetime
+- [x] 13 tag
+- [x] 14 annotation
