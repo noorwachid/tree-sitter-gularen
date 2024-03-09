@@ -81,8 +81,8 @@ module.exports = grammar({
 			$.text, 
 		),
 
-		comment: $ => /~[^~]*/,
-		annotation: $ => seq('~', '~', $.annotation_key, $.annotation_colon, $.annotation_value),
+		comment: $ => seq(/~[^~].*/, $._end_block),
+		annotation: $ => seq('~', '~', $.annotation_key, $.annotation_colon, $.annotation_value, $._end_block),
 		annotation_key: $ => /[0-9A-Za-z-]+/,
 		annotation_colon: $ => ':',
 		annotation_value: $ => /.*/,

@@ -464,6 +464,11 @@
     }
   },
   {
+    "type": "comment",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "datetime",
     "named": true,
     "fields": {},
@@ -1735,10 +1740,6 @@
   },
   {
     "type": "code_lang",
-    "named": true
-  },
-  {
-    "type": "comment",
     "named": true
   },
   {

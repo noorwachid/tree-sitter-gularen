@@ -467,8 +467,17 @@
       ]
     },
     "comment": {
-      "type": "PATTERN",
-      "value": "~[^~]*"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "~[^~].*"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_end_block"
+        }
+      ]
     },
     "annotation": {
       "type": "SEQ",
@@ -492,6 +501,10 @@
         {
           "type": "SYMBOL",
           "name": "annotation_value"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_end_block"
         }
       ]
     },
