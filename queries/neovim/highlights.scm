@@ -18,7 +18,7 @@
 
 (code_inline) @markup.raw
 
-(code_block (code_content) @markup.raw.block)
+(code_content) @markup.raw.block
 
 (code_lang) @operator
 (fence_open) @operator

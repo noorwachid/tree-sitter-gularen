@@ -6,26 +6,7 @@ Tree sitter implementation for [Gularen markup language](https://github.com/noor
 
 ## How To Install
 ### Neovim
-1. Install [nvim-treesitter](https://github.com/nvim-treesitter/nvim-treesitter/) plugin
-2. Install [nvim-gularen](https://github.com/noorwachid/nvim-gularen/) plugin
-3. Clone this repo
-4. Add this code to your `init.lua` 
-   ```lua
-   local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
-   parser_config.gularen = {
-     install_info = {
-       url = "~/location-of-cloned-repo/tree-sitter-gularen",
-       files = {"src/parser.c", "src/scanner.c"},
-       generate_requires_npm = false,
-       requires_generate_from_grammar = false,
-     },
-     filetype = "gularen",
-   }
-   ```
-5. Reload your `init.lua` with `:so ~/.config/nvim/init.lua`
-6. Install the parser with `:TSInstall gularen`
-7. Copy `queries/neovim/*.scm` to `~/.config/nvim/queries/gularen/`
-8. Reload your neovim by closing and opening it again
+Install [nvim-gularen](https://github.com/noorwachid/nvim-gularen/) plugin
 
 Todo list:
 - [x] 01 comment
