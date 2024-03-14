@@ -14,7 +14,6 @@ enum TokenType {
 	BULLET,
 	INDEX,
 	BLANK,
-	V,
 	X,
 
 	SLASH,
@@ -31,7 +30,6 @@ enum TokenType {
 	EXCLAMATION,
 	QUESTION,
 	CARET,
-	EQUAL,
 
 	SQUARE_OPEN,
 	SQUARE_CLOSE,
@@ -363,21 +361,6 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		}
 	}
 
-	if (valid_symbols[EQUAL] || valid_symbols[TEXT]) {
-		if (lexer->lookahead == '=') {
-			lexer->advance(lexer, false);
-			lexer->mark_end(lexer);
-			if (!lexer->eof(lexer)) {
-				if (lexer->lookahead == '[') {
-					lexer->result_symbol = EQUAL;
-					return true;
-				}
-			}
-			lexer->result_symbol = TEXT;
-			return true;
-		}
-	}
-	
 	if (valid_symbols[SQUARE_OPEN]) {
 		if (lexer->lookahead == '[') {
 			lexer->advance(lexer, false);
@@ -387,19 +370,12 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		}
 	}
 
-	if (valid_symbols[RESOURCE] || valid_symbols[BLANK] || valid_symbols[V] || valid_symbols[X] || valid_symbols[SQUARE_CLOSE]) {
+	if (valid_symbols[RESOURCE] || valid_symbols[BLANK] || valid_symbols[X] || valid_symbols[SQUARE_CLOSE]) {
 		if (context->resource) {
 			if (lexer->lookahead == ' ') {
 				lexer->advance(lexer, false);
 				if (lexer->lookahead == ']') {
 					lexer->result_symbol = BLANK;
-					return true;
-				}
-			}
-			if (lexer->lookahead == 'v') {
-				lexer->advance(lexer, false);
-				if (lexer->lookahead == ']') {
-					lexer->result_symbol = V;
 					return true;
 				}
 			}
@@ -508,6 +484,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			case '?':
 			case '^':
 			case '=':
+			case ':':
 			case '\n':
 				return false;
 		}
@@ -540,6 +517,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 				case '*':
 				case '_':
+				case '=':
 				case '`':
 				case '~':
 				case '<':
@@ -548,6 +526,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case '!':
 				case '?':
 				case '^':
+				case ':':
 				case '\n':
 					lexer->result_symbol = TEXT;
 					return true;

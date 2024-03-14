@@ -33,7 +33,7 @@ module.exports = grammar({
 
 		numbered_list: $ => prec.right(repeat1(seq($.index, repeat1($._inline), $._end_block))),
 
-		todo_list: $ => prec.right(repeat1(seq($.square_open, choice($.blank, $.v, $.x), $.square_close, repeat1($._inline), $._end_block))),
+		todo_list: $ => prec.right(repeat1(seq($.square_open, choice($.blank, $.x), $.square_close, repeat1($._inline), $._end_block))),
 
 		blockquote: $ => prec.right(repeat1(seq($.slash, repeat1($._inline), $._end_block))),
 
@@ -54,12 +54,11 @@ module.exports = grammar({
 
 			$.bold,
 			$.italic,
-			$.monospaced,
-			$.code_inline_lang,
+			$.highlighted,
 			$.code_inline,
 
-			$.footnote_ref,
-			$.footnote_desc,
+			$.citation,
+			$.footnote,
 
 			$.include,
 
@@ -78,6 +77,9 @@ module.exports = grammar({
 			$.account_tag,
 			$.hash_tag,
 
+			$.coloncolon,
+			$.colon,
+
 			$.text, 
 		),
 
@@ -87,6 +89,8 @@ module.exports = grammar({
 		annotation_colon: $ => ':',
 		annotation_value: $ => /.*/,
 
+		coloncolon: $ => '::',
+		colon: $ => ':',
 		dinkus: $ => '***',
 
 		page_break: $ => '<<<',
@@ -102,7 +106,8 @@ module.exports = grammar({
 
 		bold: $ => seq('*', $._inline, '*'),
 		italic: $ => seq('_', $._inline, '_'),
-		monospaced: $ => seq('`', $._inline, '`'),
+		highlighted: $ => seq('=', $._inline, '='),
+		code_inline: $ => seq('`', /[^`]+/, '`'),
 
 		view_label: $ => seq($.exclamation, $.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
 		view: $ => seq($.exclamation, $.square_open, $.resource, $.square_close),
@@ -110,13 +115,11 @@ module.exports = grammar({
 		link_label: $ => seq($.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
 		link: $ => seq($.square_open, $.resource, $.square_close),
 
-		footnote_ref: $ => seq($.caret, $.square_open, $.resource, $.square_close),
-		footnote_desc: $ => seq($.equal, $.square_open, $.resource, $.square_close),
+		citation: $ => seq($.caret, $.square_open, $.resource, $.square_close),
+
+		footnote: $ => seq($.caret, $.paren_open, $._inline, $.paren_close),
 
 		include: $ => seq($.question, $.square_open, $.resource, $.square_close),
-
-		code_inline_lang: $ => seq($.curly_open, $.code_inline_content, $.curly_close, $.paren_open, $.label, $.paren_close),
-		code_inline: $ => seq($.curly_open, $.code_inline_content, $.curly_close),
 	},
 
 	externals: $ => [
@@ -131,7 +134,6 @@ module.exports = grammar({
 		$.bullet,
 		$.index,
 		$.blank,
-		$.v,
 		$.x,
 
 		$.slash,
@@ -148,7 +150,6 @@ module.exports = grammar({
 		$.exclamation,
 		$.question,
 		$.caret,
-		$.equal,
 
 		$.square_open,
 		$.square_close,

@@ -8,24 +8,29 @@ Tree sitter implementation for [Gularen markup language](https://github.com/noor
 ### Neovim
 Install [nvim-gularen](https://github.com/noorwachid/nvim-gularen/) plugin
 
-Todo list:
+## Check List
 - [x] 01 comment
-- [x] 02 style
-- [x] 03 heading
-- [x] 04 paragraph
-- [x] 05 indentation
+- [x] 02 annotation
+- [x] 03 paragraph
+- [x] 04 style
+- [x] 05 highlight
 - [x] 06 break
-- [x] 07 list
-- [ ] 08 table
-- [x] 09 code
-- [x] 0A linker
-- [x] 0B viewer
-- [x] 0C inclusion
-- [x] 0D footnote
-- [ ] 0E punctuation
-- [ ] 0F emoji
-- [x] 10 blockquote
-- [x] 11 admonition
-- [x] 12 datetime
-- [x] 13 tag
-- [x] 14 annotation
+- [ ] 07 indentation
+- [x] 08 blockquote
+- [x] 09 heading
+- [x] 10 list
+- [x] 11 check-list
+- [x] 12 definition-list
+- [x] 13 code
+- [ ] 14 table
+- [x] 15 admonition
+- [x] 16 datetime
+- [x] 17 tag
+- [x] 18 linker
+- [x] 19 viewer
+- [x] 20 inclusion
+- [x] 21 citation
+- [ ] 22 footnote
+- [ ] 23 punctuation
+- [ ] 24 emoji
+
