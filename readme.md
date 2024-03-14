@@ -2,7 +2,7 @@
 
 Tree sitter implementation for [Gularen markup language](https://github.com/noorwachid/gularen/)
 
-<img width="1426" alt="Screenshot 2024-03-05 at 17 26 30" src="https://github.com/noorwachid/tree-sitter-gularen/assets/42460975/723c6991-6048-4d06-b9f1-f2d6ba8f3b82">
+<img width="1425" alt="Gularen Overview" src="https://github.com/noorwachid/tree-sitter-gularen/assets/42460975/2111fe37-4ebb-4f33-bd1a-50a03aab55f0">
 
 ## How To Install
 ### Neovim
