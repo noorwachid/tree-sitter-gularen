@@ -79,6 +79,8 @@ module.exports = grammar({
 			$.coloncolon,
 			$.colon,
 
+			$.escape,
+
 			$.text, 
 		),
 
@@ -120,6 +122,8 @@ module.exports = grammar({
 		footnote: $ => seq($.caret, $.paren_open, $._inline, $.paren_close),
 
 		include: $ => seq($.question, $.square_open, $.resource, $.square_close),
+
+		escape: $ => /\\./,
 	},
 
 	externals: $ => [

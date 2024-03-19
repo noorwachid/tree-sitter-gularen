@@ -473,6 +473,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			case '^':
 			case '=':
 			case ':':
+			case '\\':
 			case '\n':
 				return false;
 		}
@@ -515,6 +516,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case '?':
 				case '^':
 				case ':':
+				case '\\':
 				case '\n':
 					lexer->result_symbol = TEXT;
 					return true;

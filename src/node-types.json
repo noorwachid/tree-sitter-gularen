@@ -103,6 +103,10 @@
           "named": true
         },
         {
+          "type": "escape",
+          "named": true
+        },
+        {
           "type": "footnote",
           "named": true
         },
@@ -234,6 +238,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "escape",
           "named": true
         },
         {
@@ -545,6 +553,10 @@
           "named": true
         },
         {
+          "type": "escape",
+          "named": true
+        },
+        {
           "type": "footnote",
           "named": true
         },
@@ -791,6 +803,10 @@
           "named": true
         },
         {
+          "type": "escape",
+          "named": true
+        },
+        {
           "type": "footnote",
           "named": true
         },
@@ -891,6 +907,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "escape",
           "named": true
         },
         {
@@ -1001,6 +1021,10 @@
           "named": true
         },
         {
+          "type": "escape",
+          "named": true
+        },
+        {
           "type": "footnote",
           "named": true
         },
@@ -1101,6 +1125,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "escape",
           "named": true
         },
         {
@@ -1211,6 +1239,10 @@
           "named": true
         },
         {
+          "type": "escape",
+          "named": true
+        },
+        {
           "type": "footnote",
           "named": true
         },
@@ -1318,6 +1350,10 @@
           "named": true
         },
         {
+          "type": "escape",
+          "named": true
+        },
+        {
           "type": "footnote",
           "named": true
         },
@@ -1422,6 +1458,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "escape",
           "named": true
         },
         {
@@ -1619,6 +1659,10 @@
   },
   {
     "type": "dinkus",
+    "named": true
+  },
+  {
+    "type": "escape",
     "named": true
   },
   {
