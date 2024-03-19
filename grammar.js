@@ -5,9 +5,9 @@ module.exports = grammar({
 		document: $ => repeat($._block),
 
 		_block: $ => choice(
-			$.chapter,
 			$.section,
 			$.subsection,
+			$.subsubsection,
 			$.subtitle,
 
 			$.code_block_lang,
@@ -24,9 +24,9 @@ module.exports = grammar({
 			$._newline_plus,
 		),
 
-		chapter: $ => seq($.head3, repeat1($._inline), $._end_block),
-		section: $ => seq($.head2, repeat1($._inline), $._end_block),
-		subsection: $ => seq($.head1, repeat1($._inline), $._end_block),
+		section: $ => seq($.head3, repeat1($._inline), $._end_block),
+		subsection: $ => seq($.head2, repeat1($._inline), $._end_block),
+		subsubsection: $ => seq($.head1, repeat1($._inline), $._end_block),
 		subtitle: $ => seq($.head0, repeat1($._inline), $._end_block),
 
 		list: $ => prec.right(repeat1(seq($.bullet, repeat1($._inline), $._end_block))),

@@ -13,15 +13,15 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "chapter"
-        },
-        {
-          "type": "SYMBOL",
           "name": "section"
         },
         {
           "type": "SYMBOL",
           "name": "subsection"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "subsubsection"
         },
         {
           "type": "SYMBOL",
@@ -61,7 +61,7 @@
         }
       ]
     },
-    "chapter": {
+    "section": {
       "type": "SEQ",
       "members": [
         {
@@ -81,7 +81,7 @@
         }
       ]
     },
-    "section": {
+    "subsection": {
       "type": "SEQ",
       "members": [
         {
@@ -101,7 +101,7 @@
         }
       ]
     },
-    "subsection": {
+    "subsubsection": {
       "type": "SEQ",
       "members": [
         {

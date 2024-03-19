@@ -261,113 +261,6 @@
     }
   },
   {
-    "type": "chapter",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "admon",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
-          "type": "citation",
-          "named": true
-        },
-        {
-          "type": "code_inline",
-          "named": true
-        },
-        {
-          "type": "colon",
-          "named": true
-        },
-        {
-          "type": "coloncolon",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "head3",
-          "named": true
-        },
-        {
-          "type": "highlighted",
-          "named": true
-        },
-        {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "line_break",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_label",
-          "named": true
-        },
-        {
-          "type": "page_break",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_label",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "citation",
     "named": true,
     "fields": {},
@@ -500,10 +393,6 @@
           "named": true
         },
         {
-          "type": "chapter",
-          "named": true
-        },
-        {
           "type": "code_block",
           "named": true
         },
@@ -529,6 +418,10 @@
         },
         {
           "type": "subsection",
+          "named": true
+        },
+        {
+          "type": "subsubsection",
           "named": true
         },
         {
@@ -1326,7 +1219,7 @@
           "named": true
         },
         {
-          "type": "head2",
+          "type": "head3",
           "named": true
         },
         {
@@ -1374,6 +1267,113 @@
   },
   {
     "type": "subsection",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "account_tag",
+          "named": true
+        },
+        {
+          "type": "admon",
+          "named": true
+        },
+        {
+          "type": "annotation",
+          "named": true
+        },
+        {
+          "type": "bold",
+          "named": true
+        },
+        {
+          "type": "citation",
+          "named": true
+        },
+        {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "colon",
+          "named": true
+        },
+        {
+          "type": "coloncolon",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "datetime",
+          "named": true
+        },
+        {
+          "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "footnote",
+          "named": true
+        },
+        {
+          "type": "hash_tag",
+          "named": true
+        },
+        {
+          "type": "head2",
+          "named": true
+        },
+        {
+          "type": "highlighted",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
+          "type": "italic",
+          "named": true
+        },
+        {
+          "type": "line_break",
+          "named": true
+        },
+        {
+          "type": "link",
+          "named": true
+        },
+        {
+          "type": "link_label",
+          "named": true
+        },
+        {
+          "type": "page_break",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "view",
+          "named": true
+        },
+        {
+          "type": "view_label",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subsubsection",
     "named": true,
     "fields": {},
     "children": {
