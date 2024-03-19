@@ -293,7 +293,6 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				lexer->advance(lexer, false);
 			}
 
-			printf("GOT HERE\n");
 			lexer->result_symbol = CODE_INLINE_CONTENT;
 			return true;
 		}
