@@ -131,7 +131,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -151,7 +151,7 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -162,7 +162,30 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "highlighted",
+          "named": true
+        },
+        {
+          "type": "italic",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "check_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
       "required": true,
       "types": [
         {
@@ -175,6 +198,10 @@
         },
         {
           "type": "annotation",
+          "named": true
+        },
+        {
+          "type": "blank",
           "named": true
         },
         {
@@ -238,11 +265,19 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
           "type": "page_break",
+          "named": true
+        },
+        {
+          "type": "square_close",
+          "named": true
+        },
+        {
+          "type": "square_open",
           "named": true
         },
         {
@@ -254,7 +289,11 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
+          "named": true
+        },
+        {
+          "type": "x",
           "named": true
         }
       ]
@@ -296,7 +335,7 @@
       "required": true,
       "types": [
         {
-          "type": "code_content",
+          "type": "code_block_content",
           "named": true
         },
         {
@@ -311,7 +350,12 @@
     }
   },
   {
-    "type": "code_block_lang",
+    "type": "code_block_content",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "code_block_labeled",
     "named": true,
     "fields": {},
     "children": {
@@ -319,11 +363,11 @@
       "required": true,
       "types": [
         {
-          "type": "code_content",
+          "type": "code_block_content",
           "named": true
         },
         {
-          "type": "code_lang",
+          "type": "code_block_label",
           "named": true
         },
         {
@@ -338,14 +382,23 @@
     }
   },
   {
-    "type": "code_content",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "code_inline",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "backtick",
+          "named": true
+        },
+        {
+          "type": "code_inline_content",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "colon",
@@ -393,11 +446,15 @@
           "named": true
         },
         {
+          "type": "check_list",
+          "named": true
+        },
+        {
           "type": "code_block",
           "named": true
         },
         {
-          "type": "code_block_lang",
+          "type": "code_block_labeled",
           "named": true
         },
         {
@@ -426,10 +483,6 @@
         },
         {
           "type": "subtitle",
-          "named": true
-        },
-        {
-          "type": "todo_list",
           "named": true
         }
       ]
@@ -520,7 +573,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -544,7 +597,7 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -555,67 +608,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "admon",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
           "type": "bold",
-          "named": true
-        },
-        {
-          "type": "citation",
-          "named": true
-        },
-        {
-          "type": "code_inline",
-          "named": true
-        },
-        {
-          "type": "colon",
-          "named": true
-        },
-        {
-          "type": "coloncolon",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "highlighted",
-          "named": true
-        },
-        {
-          "type": "include",
           "named": true
         },
         {
@@ -623,31 +620,7 @@
           "named": true
         },
         {
-          "type": "line_break",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_label",
-          "named": true
-        },
-        {
-          "type": "page_break",
-          "named": true
-        },
-        {
           "type": "text",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_label",
           "named": true
         }
       ]
@@ -685,59 +658,11 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "admon",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
           "type": "bold",
-          "named": true
-        },
-        {
-          "type": "citation",
-          "named": true
-        },
-        {
-          "type": "code_inline",
-          "named": true
-        },
-        {
-          "type": "colon",
-          "named": true
-        },
-        {
-          "type": "coloncolon",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
           "named": true
         },
         {
@@ -745,39 +670,7 @@
           "named": true
         },
         {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "line_break",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_label",
-          "named": true
-        },
-        {
-          "type": "page_break",
-          "named": true
-        },
-        {
           "type": "text",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_label",
           "named": true
         }
       ]
@@ -807,7 +700,7 @@
     }
   },
   {
-    "type": "link_label",
+    "type": "link_labeled",
     "named": true,
     "fields": {},
     "children": {
@@ -926,7 +819,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -942,7 +835,7 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -1033,7 +926,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -1049,7 +942,7 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -1136,7 +1029,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -1152,7 +1045,7 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -1243,7 +1136,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -1259,7 +1152,7 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -1350,7 +1243,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -1366,7 +1259,7 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -1457,7 +1350,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -1473,7 +1366,7 @@
           "named": true
         },
         {
-          "type": "view_label",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -1564,7 +1457,7 @@
           "named": true
         },
         {
-          "type": "link_label",
+          "type": "link_labeled",
           "named": true
         },
         {
@@ -1580,126 +1473,7 @@
           "named": true
         },
         {
-          "type": "view_label",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "todo_list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "admon",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "blank",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
-          "type": "citation",
-          "named": true
-        },
-        {
-          "type": "code_inline",
-          "named": true
-        },
-        {
-          "type": "colon",
-          "named": true
-        },
-        {
-          "type": "coloncolon",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "highlighted",
-          "named": true
-        },
-        {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "line_break",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_label",
-          "named": true
-        },
-        {
-          "type": "page_break",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_label",
-          "named": true
-        },
-        {
-          "type": "x",
+          "type": "view_labeled",
           "named": true
         }
       ]
@@ -1733,7 +1507,7 @@
     }
   },
   {
-    "type": "view_label",
+    "type": "view_labeled",
     "named": true,
     "fields": {},
     "children": {
@@ -1788,10 +1562,6 @@
     "named": false
   },
   {
-    "type": "`",
-    "named": false
-  },
-  {
     "type": "account_tag",
     "named": true
   },
@@ -1816,6 +1586,10 @@
     "named": true
   },
   {
+    "type": "backtick",
+    "named": true
+  },
+  {
     "type": "blank",
     "named": true
   },
@@ -1828,7 +1602,11 @@
     "named": true
   },
   {
-    "type": "code_lang",
+    "type": "code_block_label",
+    "named": true
+  },
+  {
+    "type": "code_inline_content",
     "named": true
   },
   {

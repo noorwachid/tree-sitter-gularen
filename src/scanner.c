@@ -20,11 +20,10 @@ enum TokenType {
 
 	FENCE_OPEN,
 	FENCE_CLOSE,
-	CODE_LANG,
-	CODE_LINE,
+	CODE_BLOCK_LABEL,
+	CODE_BLOCK_LINE,
 
-	CURLY_OPEN,
-	CURLY_CLOSE,
+	BACKTICK,
 	CODE_INLINE_CONTENT,
 
 	EXCLAMATION,
@@ -231,7 +230,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			}
 		}
 
-		if (valid_symbols[CODE_LINE] || valid_symbols[FENCE_CLOSE]) {
+		if (valid_symbols[CODE_BLOCK_LINE] || valid_symbols[FENCE_CLOSE]) {
 			if (valid_symbols[FENCE_CLOSE] && lexer->eof(lexer)) {
 				lexer->result_symbol = FENCE_CLOSE;
 				context->fenceDashCount = 0;
@@ -266,52 +265,43 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				lexer->advance(lexer, false);
 			}
 
-			lexer->result_symbol = CODE_LINE;
+			lexer->result_symbol = CODE_BLOCK_LINE;
 			return true;
 		}
 	}
 
-	if (valid_symbols[CODE_LANG]) {
+	if (valid_symbols[CODE_BLOCK_LABEL]) {
 		if (context->fenceDashCount != 0) {
 			while (!lexer->eof(lexer) && lexer->lookahead != '\n')  {
 				lexer->advance(lexer, false);
 			}
-			lexer->result_symbol = CODE_LANG;
+			lexer->result_symbol = CODE_BLOCK_LABEL;
 			return true;
 		}
 	}
 
-	if (valid_symbols[CURLY_OPEN]) {
-		if (lexer->lookahead == '{') {
-			lexer->advance(lexer, false);
-			lexer->result_symbol = CURLY_OPEN;
-			context->codeInline = true;
-			return true;
-		}
-	}
-
-	if (valid_symbols[CODE_INLINE_CONTENT] || valid_symbols[CURLY_CLOSE]) {
+	if (valid_symbols[CODE_INLINE_CONTENT] || valid_symbols[BACKTICK]) {
 		if (context->codeInline) {
-			if (lexer->lookahead == '}') {
+			if (lexer->lookahead == '`') {
 				lexer->advance(lexer, false);
-				lexer->result_symbol = CURLY_CLOSE;
+				lexer->result_symbol = BACKTICK;
 				context->codeInline = false;
 				return true;
 			}
 
-			while (!lexer->eof(lexer) && lexer->lookahead != '}') {
+			while (!lexer->eof(lexer) && lexer->lookahead != '`') {
 				lexer->advance(lexer, false);
 			}
 
-			lexer->mark_end(lexer);
-			if (!lexer->eof(lexer)) {
-				lexer->advance(lexer, false);
-				if (lexer->lookahead == '(') {
-					context->label = true;
-				}
-			}
-
+			printf("GOT HERE\n");
 			lexer->result_symbol = CODE_INLINE_CONTENT;
+			return true;
+		}
+
+		if (lexer->lookahead == '`') {
+			lexer->advance(lexer, false);
+			lexer->result_symbol = BACKTICK;
+			context->codeInline = true;
 			return true;
 		}
 	}
@@ -415,7 +405,6 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		if (lexer->lookahead == '(') {
 			lexer->advance(lexer, false);
 			lexer->result_symbol = PAREN_OPEN;
-			context->codeInline = true;
 			return true;
 		}
 	}
