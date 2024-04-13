@@ -16,8 +16,6 @@ enum TokenType {
 	BLANK,
 	X,
 
-	SLASH,
-
 	FENCE_OPEN,
 	FENCE_CLOSE,
 	CODE_BLOCK_LABEL,
@@ -123,17 +121,6 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 	if (lexer->get_column(lexer) == 0) {
 		while (!lexer->eof(lexer) && lexer->lookahead == '\t') {
 			lexer->advance(lexer, true);
-		}
-
-		if (valid_symbols[SLASH] || valid_symbols[TEXT]) {
-			if (lexer->lookahead == '/') {
-				lexer->advance(lexer, false); 
-
-				if (lexer->lookahead == ' ') {
-					lexer->result_symbol = SLASH;
-					return true;
-				}
-			}
 		}
 
 		if (valid_symbols[HEAD3] || valid_symbols[HEAD2] || valid_symbols[HEAD1] || valid_symbols[TEXT]) {
@@ -462,6 +449,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 		switch (lexer->lookahead) {
 			case '*':
+			case '/':
 			case '_':
 			case '`':
 			case '~':
@@ -505,6 +493,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 					break;
 
 				case '*':
+				case '/':
 				case '_':
 				case '=':
 				case '`':

@@ -17,8 +17,6 @@ module.exports = grammar({
 			$.numbered_list,
 			$.check_list,
 
-			$.blockquote,
-
 			$.paragraph,
 
 			$._newline_plus,
@@ -34,8 +32,6 @@ module.exports = grammar({
 		numbered_list: $ => prec.right(repeat1(seq($.index, repeat1($._inline), $._end_block))),
 
 		check_list: $ => prec.right(repeat1(seq($.square_open, choice($.blank, $.x), $.square_close, repeat1($._inline), $._end_block))),
-
-		blockquote: $ => prec.right(repeat1(seq($.slash, repeat1($._inline), $._end_block))),
 
 		code_block_labeled: $ => seq($.fence_open, $.code_block_label, $._newline, $.code_block_content, $.fence_close),
 		code_block: $ => seq($.fence_open, $._newline, $.code_block_content, $.fence_close),
@@ -53,6 +49,7 @@ module.exports = grammar({
 
 			$.bold,
 			$.italic,
+			$.underlined,
 			$.highlighted,
 			$.code_inline,
 
@@ -105,9 +102,10 @@ module.exports = grammar({
 		admon_label: $ => /[A-Za-z][^>]+/,
 		datetime_content: $ => /[0-9- :]+/,
 
-		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.highlighted)), '*'),
-		italic: $ => seq('_', repeat1(choice($.text, $.bold, $.highlighted)), '_'),
-		highlighted: $ => seq('=', repeat1(choice($.text, $.bold, $.italic)), '='),
+		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underlined, $.highlighted)), '*'),
+		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underlined, $.highlighted)), '/'),
+		underlined: $ => seq('_', repeat1(choice($.text, $.bold, $.italic, $.highlighted)), '_'),
+		highlighted: $ => seq('=', repeat1(choice($.text, $.bold, $.italic, $.underlined)), '='),
 		code_inline: $ => seq($.backtick, $.code_inline_content, $.backtick),
 
 
@@ -139,8 +137,6 @@ module.exports = grammar({
 		$.index,
 		$.blank,
 		$.x,
-
-		$.slash,
 
 		$.fence_open,
 		$.fence_close,
