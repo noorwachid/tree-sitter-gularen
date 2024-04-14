@@ -27,6 +27,7 @@ enum TokenType {
 	EXCLAMATION,
 	QUESTION,
 	CARET,
+	AMPERSAND,
 
 	SQUARE_OPEN,
 	SQUARE_CLOSE,
@@ -337,6 +338,21 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		}
 	}
 
+	if (valid_symbols[AMPERSAND] || valid_symbols[TEXT]) {
+		if (lexer->lookahead == '&') {
+			lexer->advance(lexer, false);
+			lexer->mark_end(lexer);
+			if (!lexer->eof(lexer)) {
+				if (lexer->lookahead == '[') {
+					lexer->result_symbol = AMPERSAND;
+					return true;
+				}
+			}
+			lexer->result_symbol = TEXT;
+			return true;
+		}
+	}
+
 	if (valid_symbols[SQUARE_OPEN]) {
 		if (lexer->lookahead == '[') {
 			lexer->advance(lexer, false);
@@ -459,11 +475,19 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 			case '!':
 			case '?':
 			case '^':
+			case '&':
 			case '=':
 			case ':':
 			case '\\':
 			case '\n':
 				return false;
+
+			case '+':
+				lexer->advance(lexer, false);
+				if (lexer->lookahead >= '0' && lexer->lookahead <= '9') {
+					return false;
+				}
+				break;
 		}
 
 		while (!lexer->eof(lexer)) {
@@ -504,9 +528,14 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case '!':
 				case '?':
 				case '^':
+				case '&':
 				case ':':
 				case '\\':
 				case '\n':
+					lexer->result_symbol = TEXT;
+					return true;
+
+				case '+':
 					lexer->result_symbol = TEXT;
 					return true;
 

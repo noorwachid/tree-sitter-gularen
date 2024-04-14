@@ -5,9 +5,9 @@ module.exports = grammar({
 		document: $ => repeat($._block),
 
 		_block: $ => choice(
+			$.chapter,
 			$.section,
 			$.subsection,
-			$.subsubsection,
 			$.subtitle,
 
 			$.code_block_labeled,
@@ -22,9 +22,9 @@ module.exports = grammar({
 			$._newline_plus,
 		),
 
-		section: $ => seq($.head3, repeat1($._inline), $._end_block),
-		subsection: $ => seq($.head2, repeat1($._inline), $._end_block),
-		subsubsection: $ => seq($.head1, repeat1($._inline), $._end_block),
+		chapter: $ => seq($.head3, repeat1($._inline), $._end_block),
+		section: $ => seq($.head2, repeat1($._inline), $._end_block),
+		subsection: $ => seq($.head1, repeat1($._inline), $._end_block),
 		subtitle: $ => seq($.head0, repeat1($._inline), $._end_block),
 
 		list: $ => prec.right(repeat1(seq($.bullet, repeat1($._inline), $._end_block))),
@@ -44,16 +44,17 @@ module.exports = grammar({
 		_inline: $ => choice(
 			$.comment, 
 			$.annotation,
+			$.reference,
 
 			$.dinkus,
 
 			$.bold,
 			$.italic,
-			$.underlined,
-			$.highlighted,
+			$.underline,
+			$.highlight,
 			$.code_inline,
 
-			$.citation,
+			$.in_text,
 			$.footnote,
 
 			$.include,
@@ -64,17 +65,15 @@ module.exports = grammar({
 			$.link_labeled,
 			$.link,
 
-			$.page_break,
-			$.line_break,
+			$.break,
 
 			$.admon,
-			$.datetime,
 
+			$.datetime,
 			$.account_tag,
 			$.hash_tag,
 
 			$.coloncolon,
-			$.colon,
 
 			$.escape,
 
@@ -82,32 +81,29 @@ module.exports = grammar({
 		),
 
 		comment: $ => seq(/~[^~].*/, $._end_block),
-		annotation: $ => seq('~', '~', $.annotation_key, $.annotation_colon, $.annotation_value, $._end_block),
+		annotation: $ => seq('~~', $.annotation_key, $.annotation_assign, $.annotation_value, $._end_block),
 		annotation_key: $ => /[0-9A-Za-z-]+/,
-		annotation_colon: $ => ':',
+		annotation_assign: $ => / += +/,
 		annotation_value: $ => /.*/,
 
+		reference: $ => seq('~~ &', $.reference_key),
+		reference_key: $ => /.*/,
+
 		coloncolon: $ => '::',
-		colon: $ => ':',
 		dinkus: $ => '***',
 
-		page_break: $ => '<<<',
-		line_break: $ => '<<',
-		admon: $ => seq($.angle_open, $.admon_label, $.angle_close),
-		datetime: $ => seq($.angle_open, $.datetime_content, $.angle_close),
-
-		angle_open: $ => '<',
-		angle_close: $ => '>',
-
+		break: $ => /<{1,3}/,
+		admon: $ => seq($.admon_marker, $.admon_label, $.admon_marker),
+		admon_marker: $ => '//',
 		admon_label: $ => /[A-Za-z][^>]+/,
-		datetime_content: $ => /[0-9- :]+/,
 
-		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underlined, $.highlighted)), '*'),
-		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underlined, $.highlighted)), '/'),
-		underlined: $ => seq('_', repeat1(choice($.text, $.bold, $.italic, $.highlighted)), '_'),
-		highlighted: $ => seq('=', repeat1(choice($.text, $.bold, $.italic, $.underlined)), '='),
+		datetime: $ => /\+[0-9- :]+/,
+
+		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underline, $.highlight)), '*'),
+		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underline, $.highlight)), '/'),
+		underline: $ => seq('_', repeat1(choice($.text, $.bold, $.italic, $.highlight)), '_'),
+		highlight: $ => seq('==', repeat1(choice($.text, $.bold, $.italic, $.underline)), '=='),
 		code_inline: $ => seq($.backtick, $.code_inline_content, $.backtick),
-
 
 		view_labeled: $ => seq($.exclamation, $.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
 		view: $ => seq($.exclamation, $.square_open, $.resource, $.square_close),
@@ -115,10 +111,8 @@ module.exports = grammar({
 		link_labeled: $ => seq($.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
 		link: $ => seq($.square_open, $.resource, $.square_close),
 
-		citation: $ => seq($.caret, $.square_open, $.resource, $.square_close),
-
-		footnote: $ => seq($.caret, $.paren_open, $._inline, $.paren_close),
-
+		footnote: $ => seq($.caret, $.square_open, $.resource, $.square_close),
+		in_text: $ => seq($.ampersand, $.square_open, $.resource, $.square_close),
 		include: $ => seq($.question, $.square_open, $.resource, $.square_close),
 
 		escape: $ => /\\./,
@@ -149,6 +143,7 @@ module.exports = grammar({
 		$.exclamation,
 		$.question,
 		$.caret,
+		$.ampersand,
 
 		$.square_open,
 		$.square_close,
