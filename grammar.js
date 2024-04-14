@@ -95,7 +95,7 @@ module.exports = grammar({
 		break: $ => /<{1,3}/,
 		admon: $ => seq($.admon_marker, $.admon_label, $.admon_marker),
 		admon_marker: $ => '//',
-		admon_label: $ => /[A-Za-z][^>]+/,
+		admon_label: $ => /[A-Za-z][^/][^/]+/,
 
 		datetime: $ => /\+[0-9- :]+/,
 

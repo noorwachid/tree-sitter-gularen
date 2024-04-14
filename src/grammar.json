@@ -541,7 +541,7 @@
     },
     "admon_label": {
       "type": "PATTERN",
-      "value": "[A-Za-z][^>]+"
+      "value": "[A-Za-z][^/][^/]+"
     },
     "datetime": {
       "type": "PATTERN",
