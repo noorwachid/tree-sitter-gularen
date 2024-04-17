@@ -44,26 +44,26 @@ enum TokenType {
 };
 
 typedef struct {
-	int indentLevel;
-	int fenceDashCount;
-	bool nextAsSubtitle;
-	bool indentOpening;
-	bool codeInline;
+	int indent_level;
+	int fence_dash_count;
+	int previous_heading;
+	bool indent_opening;
+	bool code_inline;
 	bool resource;
 	bool label;
-	bool previousAlphanumeric;
+	bool previous_alphanumeric;
 } Context;
 
 void* tree_sitter_gularen_external_scanner_create() {
 	Context* context = malloc(sizeof(Context));
-	context->nextAsSubtitle = false;
-	context->indentLevel = 0;
-	context->indentOpening = false;
-	context->fenceDashCount = 0;
-	context->codeInline = false;
+	context->previous_heading = 0;
+	context->indent_level = 0;
+	context->indent_opening = false;
+	context->fence_dash_count = 0;
+	context->code_inline = false;
 	context->resource = false;
 	context->label = false;
-	context->previousAlphanumeric = false;
+	context->previous_alphanumeric = false;
 	return context;
 }
 
@@ -110,11 +110,16 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 			if (count == 1) {
 				lexer->result_symbol = NEWLINE;
+				if (context->previous_heading > 0) {
+					context->previous_heading -= 1;
+				}
 				return true;
 			}
 
 			lexer->result_symbol = NEWLINE_PLUS;
-			context->nextAsSubtitle = false;
+			if (context->previous_heading) {
+				context->previous_heading = 0;
+			}
 			return true;
 		}
 	}
@@ -129,13 +134,13 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				lexer->advance(lexer, false); 
 
 				if (lexer->lookahead == ' ') {
-					if (context->nextAsSubtitle) {
-						context->nextAsSubtitle = false;
+					if (context->previous_heading) {
+						context->previous_heading = 0;
 						lexer->result_symbol = HEAD0;
 						return true;
 					}
 
-					context->nextAsSubtitle = true;
+					context->previous_heading = 2;
 					lexer->result_symbol = HEAD1;
 					return true;
 				}
@@ -145,7 +150,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 					if (lexer->lookahead == ' ') {
 						lexer->result_symbol = HEAD2;
-						context->nextAsSubtitle = true;
+						context->previous_heading = 2;
 						return true;
 					}
 
@@ -153,7 +158,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 						lexer->advance(lexer, false); 
 
 						if (lexer->lookahead == ' ') {
-							context->nextAsSubtitle = true;
+							context->previous_heading = 2;
 							lexer->result_symbol = HEAD3;
 							return true;
 						}
@@ -204,13 +209,13 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 						if (lexer->lookahead == ' ') {
 							lexer->advance(lexer, false);
 							lexer->result_symbol = FENCE_OPEN;
-							context->fenceDashCount = dashCount;
+							context->fence_dash_count = dashCount;
 							return true;
 						}
 
 						if (lexer->lookahead == '\n') {
 							lexer->result_symbol = FENCE_OPEN;
-							context->fenceDashCount = dashCount;
+							context->fence_dash_count = dashCount;
 							return true;
 						}
 					}
@@ -221,7 +226,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		if (valid_symbols[CODE_BLOCK_LINE] || valid_symbols[FENCE_CLOSE]) {
 			if (valid_symbols[FENCE_CLOSE] && lexer->eof(lexer)) {
 				lexer->result_symbol = FENCE_CLOSE;
-				context->fenceDashCount = 0;
+				context->fence_dash_count = 0;
 				return true;
 			}
 
@@ -237,9 +242,9 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 						lexer->advance(lexer, false);
 					}
 
-					if (dashCount == context->fenceDashCount) {
+					if (dashCount == context->fence_dash_count) {
 						lexer->result_symbol = FENCE_CLOSE;
-						context->fenceDashCount = 0;
+						context->fence_dash_count = 0;
 						return true;
 					}
 				}
@@ -259,7 +264,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 	}
 
 	if (valid_symbols[CODE_BLOCK_LABEL]) {
-		if (context->fenceDashCount != 0) {
+		if (context->fence_dash_count != 0) {
 			while (!lexer->eof(lexer) && lexer->lookahead != '\n')  {
 				lexer->advance(lexer, false);
 			}
@@ -269,11 +274,11 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 	}
 
 	if (valid_symbols[CODE_INLINE_CONTENT] || valid_symbols[BACKTICK]) {
-		if (context->codeInline) {
+		if (context->code_inline) {
 			if (lexer->lookahead == '`') {
 				lexer->advance(lexer, false);
 				lexer->result_symbol = BACKTICK;
-				context->codeInline = false;
+				context->code_inline = false;
 				return true;
 			}
 
@@ -288,7 +293,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 		if (lexer->lookahead == '`') {
 			lexer->advance(lexer, false);
 			lexer->result_symbol = BACKTICK;
-			context->codeInline = true;
+			context->code_inline = true;
 			return true;
 		}
 	}
@@ -496,7 +501,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case ' ':
 				case ',':
 				case '.':
-					context->previousAlphanumeric = false;
+					context->previous_alphanumeric = false;
 					lexer->advance(lexer, false);
 					break;
 
@@ -512,7 +517,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 				case 'h': case 'i': case 'j': case 'k': case 'l': case 'm':
 				case 'n': case 'o': case 'p': case 'q': case 'r': case 's': case 't': 
 				case 'u': case 'v': case 'w': case 'x': case 'y': case 'z':
-					context->previousAlphanumeric = true;
+					context->previous_alphanumeric = true;
 					lexer->advance(lexer, false);
 					break;
 
@@ -541,7 +546,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 
 				case '#':
 				case '@':
-					if (!context->previousAlphanumeric) {
+					if (!context->previous_alphanumeric) {
 						lexer->result_symbol = TEXT;
 						return true;
 					}
@@ -549,7 +554,7 @@ bool tree_sitter_gularen_external_scanner_scan(void* payload, TSLexer* lexer, co
 					break;
 
 				default:
-					context->previousAlphanumeric = false;
+					context->previous_alphanumeric = false;
 					lexer->advance(lexer, false);
 					break;
 			}
