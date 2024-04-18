@@ -17,6 +17,9 @@ module.exports = grammar({
 			$.numbered_list,
 			$.check_list,
 
+			$.reference,
+			$.admonition,
+
 			$.paragraph,
 
 			$._newline_plus,
@@ -37,6 +40,12 @@ module.exports = grammar({
 		code_block: $ => seq($.fence_open, $._newline, $.code_block_content, $.fence_close),
 		code_block_content: $ => repeat1($._code_block_line),
 
+		reference: $ => seq($.ampersand, ' ', $.reference_key),
+		reference_key: $ => /.*/,
+
+		admonition: $ => seq('+ ', $.admonition_key),
+		admonition_key: $ => /.*/,
+
 		paragraph: $ => prec.right(seq(repeat1(choice($._inline, $._newline)), optional($._newline_plus))),
 
 		_end_block: $ => choice($._newline, $._newline_plus),
@@ -44,15 +53,18 @@ module.exports = grammar({
 		_inline: $ => choice(
 			$.comment, 
 			$.annotation,
-			$.reference,
 
 			$.dinkus,
 
 			$.bold,
 			$.italic,
 			$.underline,
-			$.highlight,
+
 			$.code_inline,
+
+			$.highlight,
+			$.change_added,
+			$.change_removed,
 
 			$.in_text,
 			$.footnote,
@@ -67,13 +79,14 @@ module.exports = grammar({
 
 			$.break,
 
-			$.admon,
-
 			$.datetime,
+			$.date,
+			$.time,
+
 			$.account_tag,
 			$.hash_tag,
 
-			$.coloncolon,
+			$.equal,
 
 			$.escape,
 
@@ -86,24 +99,25 @@ module.exports = grammar({
 		annotation_assign: $ => / += +/,
 		annotation_value: $ => /.*/,
 
-		reference: $ => seq('~~ &', $.reference_key),
-		reference_key: $ => /.*/,
-
-		coloncolon: $ => '::',
 		dinkus: $ => '***',
 
 		break: $ => /<{1,3}/,
-		admon: $ => seq($.admon_marker, $.admon_label, $.admon_marker),
-		admon_marker: $ => '//',
-		admon_label: $ => /[A-Za-z][^/][^/]+/,
 
-		datetime: $ => /\+[0-9- :]+/,
+		datetime: $ => /\+[0-9-]+ [0-9:]+/,
+		date: $ => /\+[0-9-]+/,
+		time: $ => /\+[0-9:]+/,
 
 		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underline, $.highlight)), '*'),
 		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underline, $.highlight)), '/'),
 		underline: $ => seq('_', repeat1(choice($.text, $.bold, $.italic, $.highlight)), '_'),
+
 		highlight: $ => seq('==', repeat1(choice($.text, $.bold, $.italic, $.underline)), '=='),
+		change_added: $ => seq('=+', repeat1(choice($.text, $.bold, $.italic, $.underline)), '+='),
+		change_removed: $ => seq('=-', repeat1(choice($.text, $.bold, $.italic, $.underline)), '-='),
+
 		code_inline: $ => seq($.backtick, $.code_inline_content, $.backtick),
+
+		equal: $ => '=',
 
 		view_labeled: $ => seq($.exclamation, $.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
 		view: $ => seq($.exclamation, $.square_open, $.resource, $.square_close),
@@ -116,6 +130,12 @@ module.exports = grammar({
 		include: $ => seq($.question, $.square_open, $.resource, $.square_close),
 
 		escape: $ => /\\./,
+
+		plus: $ => '+',
+		emDash: $ => '---',
+		enDash: $ => '--',
+		hyphen: $ => '-',
+		hyphen: $ => ':',
 	},
 
 	externals: $ => [

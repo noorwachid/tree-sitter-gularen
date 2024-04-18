@@ -1,22 +1,23 @@
 [
   {
-    "type": "admon",
+    "type": "admonition",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
-          "type": "admon_label",
-          "named": true
-        },
-        {
-          "type": "admon_marker",
+          "type": "admonition_key",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "admonition_key",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "annotation",
@@ -74,6 +75,60 @@
     }
   },
   {
+    "type": "change_added",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bold",
+          "named": true
+        },
+        {
+          "type": "italic",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "underline",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "change_removed",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bold",
+          "named": true
+        },
+        {
+          "type": "italic",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "underline",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "chapter",
     "named": true,
     "fields": {},
@@ -83,10 +138,6 @@
       "types": [
         {
           "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "admon",
           "named": true
         },
         {
@@ -102,15 +153,23 @@
           "named": true
         },
         {
+          "type": "change_added",
+          "named": true
+        },
+        {
+          "type": "change_removed",
+          "named": true
+        },
+        {
           "type": "code_inline",
           "named": true
         },
         {
-          "type": "coloncolon",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "date",
           "named": true
         },
         {
@@ -119,6 +178,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "equal",
           "named": true
         },
         {
@@ -162,11 +225,11 @@
           "named": true
         },
         {
-          "type": "reference",
+          "type": "text",
           "named": true
         },
         {
-          "type": "text",
+          "type": "time",
           "named": true
         },
         {
@@ -197,10 +260,6 @@
           "named": true
         },
         {
-          "type": "admon",
-          "named": true
-        },
-        {
           "type": "annotation",
           "named": true
         },
@@ -217,15 +276,23 @@
           "named": true
         },
         {
+          "type": "change_added",
+          "named": true
+        },
+        {
+          "type": "change_removed",
+          "named": true
+        },
+        {
           "type": "code_inline",
           "named": true
         },
         {
-          "type": "coloncolon",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "date",
           "named": true
         },
         {
@@ -234,6 +301,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "equal",
           "named": true
         },
         {
@@ -273,10 +344,6 @@
           "named": true
         },
         {
-          "type": "reference",
-          "named": true
-        },
-        {
           "type": "square_close",
           "named": true
         },
@@ -286,6 +353,10 @@
         },
         {
           "type": "text",
+          "named": true
+        },
+        {
+          "type": "time",
           "named": true
         },
         {
@@ -395,6 +466,10 @@
       "required": false,
       "types": [
         {
+          "type": "admonition",
+          "named": true
+        },
+        {
           "type": "chapter",
           "named": true
         },
@@ -420,6 +495,10 @@
         },
         {
           "type": "paragraph",
+          "named": true
+        },
+        {
+          "type": "reference",
           "named": true
         },
         {
@@ -643,10 +722,6 @@
           "named": true
         },
         {
-          "type": "admon",
-          "named": true
-        },
-        {
           "type": "annotation",
           "named": true
         },
@@ -663,15 +738,23 @@
           "named": true
         },
         {
+          "type": "change_added",
+          "named": true
+        },
+        {
+          "type": "change_removed",
+          "named": true
+        },
+        {
           "type": "code_inline",
           "named": true
         },
         {
-          "type": "coloncolon",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "date",
           "named": true
         },
         {
@@ -680,6 +763,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "equal",
           "named": true
         },
         {
@@ -719,11 +806,11 @@
           "named": true
         },
         {
-          "type": "reference",
+          "type": "text",
           "named": true
         },
         {
-          "type": "text",
+          "type": "time",
           "named": true
         },
         {
@@ -754,10 +841,6 @@
           "named": true
         },
         {
-          "type": "admon",
-          "named": true
-        },
-        {
           "type": "annotation",
           "named": true
         },
@@ -770,15 +853,23 @@
           "named": true
         },
         {
+          "type": "change_added",
+          "named": true
+        },
+        {
+          "type": "change_removed",
+          "named": true
+        },
+        {
           "type": "code_inline",
           "named": true
         },
         {
-          "type": "coloncolon",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "date",
           "named": true
         },
         {
@@ -787,6 +878,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "equal",
           "named": true
         },
         {
@@ -830,11 +925,11 @@
           "named": true
         },
         {
-          "type": "reference",
+          "type": "text",
           "named": true
         },
         {
-          "type": "text",
+          "type": "time",
           "named": true
         },
         {
@@ -865,10 +960,6 @@
           "named": true
         },
         {
-          "type": "admon",
-          "named": true
-        },
-        {
           "type": "annotation",
           "named": true
         },
@@ -881,15 +972,23 @@
           "named": true
         },
         {
+          "type": "change_added",
+          "named": true
+        },
+        {
+          "type": "change_removed",
+          "named": true
+        },
+        {
           "type": "code_inline",
           "named": true
         },
         {
-          "type": "coloncolon",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "date",
           "named": true
         },
         {
@@ -898,6 +997,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "equal",
           "named": true
         },
         {
@@ -937,11 +1040,11 @@
           "named": true
         },
         {
-          "type": "reference",
+          "type": "text",
           "named": true
         },
         {
-          "type": "text",
+          "type": "time",
           "named": true
         },
         {
@@ -964,9 +1067,13 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "ampersand",
+          "named": true
+        },
         {
           "type": "reference_key",
           "named": true
@@ -992,10 +1099,6 @@
           "named": true
         },
         {
-          "type": "admon",
-          "named": true
-        },
-        {
           "type": "annotation",
           "named": true
         },
@@ -1008,15 +1111,23 @@
           "named": true
         },
         {
+          "type": "change_added",
+          "named": true
+        },
+        {
+          "type": "change_removed",
+          "named": true
+        },
+        {
           "type": "code_inline",
           "named": true
         },
         {
-          "type": "coloncolon",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "date",
           "named": true
         },
         {
@@ -1025,6 +1136,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "equal",
           "named": true
         },
         {
@@ -1068,11 +1183,11 @@
           "named": true
         },
         {
-          "type": "reference",
+          "type": "text",
           "named": true
         },
         {
-          "type": "text",
+          "type": "time",
           "named": true
         },
         {
@@ -1103,10 +1218,6 @@
           "named": true
         },
         {
-          "type": "admon",
-          "named": true
-        },
-        {
           "type": "annotation",
           "named": true
         },
@@ -1119,15 +1230,23 @@
           "named": true
         },
         {
+          "type": "change_added",
+          "named": true
+        },
+        {
+          "type": "change_removed",
+          "named": true
+        },
+        {
           "type": "code_inline",
           "named": true
         },
         {
-          "type": "coloncolon",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "date",
           "named": true
         },
         {
@@ -1136,6 +1255,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "equal",
           "named": true
         },
         {
@@ -1179,11 +1302,11 @@
           "named": true
         },
         {
-          "type": "reference",
+          "type": "text",
           "named": true
         },
         {
-          "type": "text",
+          "type": "time",
           "named": true
         },
         {
@@ -1214,10 +1337,6 @@
           "named": true
         },
         {
-          "type": "admon",
-          "named": true
-        },
-        {
           "type": "annotation",
           "named": true
         },
@@ -1230,15 +1349,23 @@
           "named": true
         },
         {
+          "type": "change_added",
+          "named": true
+        },
+        {
+          "type": "change_removed",
+          "named": true
+        },
+        {
           "type": "code_inline",
           "named": true
         },
         {
-          "type": "coloncolon",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "comment",
+          "type": "date",
           "named": true
         },
         {
@@ -1247,6 +1374,10 @@
         },
         {
           "type": "dinkus",
+          "named": true
+        },
+        {
+          "type": "equal",
           "named": true
         },
         {
@@ -1290,11 +1421,11 @@
           "named": true
         },
         {
-          "type": "reference",
+          "type": "text",
           "named": true
         },
         {
-          "type": "text",
+          "type": "time",
           "named": true
         },
         {
@@ -1406,11 +1537,35 @@
     }
   },
   {
+    "type": " ",
+    "named": false
+  },
+  {
     "type": "*",
     "named": false
   },
   {
+    "type": "+ ",
+    "named": false
+  },
+  {
+    "type": "+=",
+    "named": false
+  },
+  {
+    "type": "-=",
+    "named": false
+  },
+  {
     "type": "/",
+    "named": false
+  },
+  {
+    "type": "=+",
+    "named": false
+  },
+  {
+    "type": "=-",
     "named": false
   },
   {
@@ -1423,14 +1578,6 @@
   },
   {
     "type": "account_tag",
-    "named": true
-  },
-  {
-    "type": "admon_label",
-    "named": true
-  },
-  {
-    "type": "admon_marker",
     "named": true
   },
   {
@@ -1474,7 +1621,7 @@
     "named": true
   },
   {
-    "type": "coloncolon",
+    "type": "date",
     "named": true
   },
   {
@@ -1483,6 +1630,10 @@
   },
   {
     "type": "dinkus",
+    "named": true
+  },
+  {
+    "type": "equal",
     "named": true
   },
   {
@@ -1558,15 +1709,15 @@
     "named": true
   },
   {
+    "type": "time",
+    "named": true
+  },
+  {
     "type": "x",
     "named": true
   },
   {
     "type": "~~",
-    "named": false
-  },
-  {
-    "type": "~~ &",
     "named": false
   }
 ]
