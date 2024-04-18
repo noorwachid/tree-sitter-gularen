@@ -93,8 +93,8 @@ module.exports = grammar({
 			$.text, 
 
 			$.plus,
-			$.emDash,
-			$.enDash,
+			$.em_dash,
+			$.en_dash,
 			$.hyphen,
 		),
 
@@ -137,8 +137,8 @@ module.exports = grammar({
 		escape: $ => /\\./,
 
 		plus: $ => '+',
-		emDash: $ => '---',
-		enDash: $ => '--',
+		em_dash: $ => '---',
+		en_dash: $ => '--',
 		hyphen: $ => '-',
 	},
 

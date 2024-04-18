@@ -497,11 +497,11 @@
         },
         {
           "type": "SYMBOL",
-          "name": "emDash"
+          "name": "em_dash"
         },
         {
           "type": "SYMBOL",
-          "name": "enDash"
+          "name": "en_dash"
         },
         {
           "type": "SYMBOL",
@@ -993,11 +993,11 @@
       "type": "STRING",
       "value": "+"
     },
-    "emDash": {
+    "em_dash": {
       "type": "STRING",
       "value": "---"
     },
-    "enDash": {
+    "en_dash": {
       "type": "STRING",
       "value": "--"
     },

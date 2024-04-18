@@ -181,11 +181,11 @@
           "named": true
         },
         {
-          "type": "emDash",
+          "type": "em_dash",
           "named": true
         },
         {
-          "type": "enDash",
+          "type": "en_dash",
           "named": true
         },
         {
@@ -320,11 +320,11 @@
           "named": true
         },
         {
-          "type": "emDash",
+          "type": "em_dash",
           "named": true
         },
         {
-          "type": "enDash",
+          "type": "en_dash",
           "named": true
         },
         {
@@ -798,11 +798,11 @@
           "named": true
         },
         {
-          "type": "emDash",
+          "type": "em_dash",
           "named": true
         },
         {
-          "type": "enDash",
+          "type": "en_dash",
           "named": true
         },
         {
@@ -929,11 +929,11 @@
           "named": true
         },
         {
-          "type": "emDash",
+          "type": "em_dash",
           "named": true
         },
         {
-          "type": "enDash",
+          "type": "en_dash",
           "named": true
         },
         {
@@ -1064,11 +1064,11 @@
           "named": true
         },
         {
-          "type": "emDash",
+          "type": "em_dash",
           "named": true
         },
         {
-          "type": "enDash",
+          "type": "en_dash",
           "named": true
         },
         {
@@ -1219,11 +1219,11 @@
           "named": true
         },
         {
-          "type": "emDash",
+          "type": "em_dash",
           "named": true
         },
         {
-          "type": "enDash",
+          "type": "en_dash",
           "named": true
         },
         {
@@ -1354,11 +1354,11 @@
           "named": true
         },
         {
-          "type": "emDash",
+          "type": "em_dash",
           "named": true
         },
         {
-          "type": "enDash",
+          "type": "en_dash",
           "named": true
         },
         {
@@ -1489,11 +1489,11 @@
           "named": true
         },
         {
-          "type": "emDash",
+          "type": "em_dash",
           "named": true
         },
         {
-          "type": "enDash",
+          "type": "en_dash",
           "named": true
         },
         {
@@ -1761,11 +1761,11 @@
     "named": true
   },
   {
-    "type": "emDash",
+    "type": "em_dash",
     "named": true
   },
   {
-    "type": "enDash",
+    "type": "en_dash",
     "named": true
   },
   {
