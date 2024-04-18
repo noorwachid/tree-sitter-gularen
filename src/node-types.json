@@ -181,6 +181,14 @@
           "named": true
         },
         {
+          "type": "emDash",
+          "named": true
+        },
+        {
+          "type": "enDash",
+          "named": true
+        },
+        {
           "type": "equal",
           "named": true
         },
@@ -205,6 +213,10 @@
           "named": true
         },
         {
+          "type": "hyphen",
+          "named": true
+        },
+        {
           "type": "in_text",
           "named": true
         },
@@ -222,6 +234,10 @@
         },
         {
           "type": "link_labeled",
+          "named": true
+        },
+        {
+          "type": "plus",
           "named": true
         },
         {
@@ -304,6 +320,14 @@
           "named": true
         },
         {
+          "type": "emDash",
+          "named": true
+        },
+        {
+          "type": "enDash",
+          "named": true
+        },
+        {
           "type": "equal",
           "named": true
         },
@@ -324,6 +348,10 @@
           "named": true
         },
         {
+          "type": "hyphen",
+          "named": true
+        },
+        {
           "type": "in_text",
           "named": true
         },
@@ -341,6 +369,10 @@
         },
         {
           "type": "link_labeled",
+          "named": true
+        },
+        {
+          "type": "plus",
           "named": true
         },
         {
@@ -766,6 +798,14 @@
           "named": true
         },
         {
+          "type": "emDash",
+          "named": true
+        },
+        {
+          "type": "enDash",
+          "named": true
+        },
+        {
           "type": "equal",
           "named": true
         },
@@ -786,6 +826,10 @@
           "named": true
         },
         {
+          "type": "hyphen",
+          "named": true
+        },
+        {
           "type": "in_text",
           "named": true
         },
@@ -803,6 +847,10 @@
         },
         {
           "type": "link_labeled",
+          "named": true
+        },
+        {
+          "type": "plus",
           "named": true
         },
         {
@@ -881,6 +929,14 @@
           "named": true
         },
         {
+          "type": "emDash",
+          "named": true
+        },
+        {
+          "type": "enDash",
+          "named": true
+        },
+        {
           "type": "equal",
           "named": true
         },
@@ -898,6 +954,10 @@
         },
         {
           "type": "highlight",
+          "named": true
+        },
+        {
+          "type": "hyphen",
           "named": true
         },
         {
@@ -922,6 +982,10 @@
         },
         {
           "type": "link_labeled",
+          "named": true
+        },
+        {
+          "type": "plus",
           "named": true
         },
         {
@@ -1000,6 +1064,14 @@
           "named": true
         },
         {
+          "type": "emDash",
+          "named": true
+        },
+        {
+          "type": "enDash",
+          "named": true
+        },
+        {
           "type": "equal",
           "named": true
         },
@@ -1020,6 +1092,10 @@
           "named": true
         },
         {
+          "type": "hyphen",
+          "named": true
+        },
+        {
           "type": "in_text",
           "named": true
         },
@@ -1037,6 +1113,10 @@
         },
         {
           "type": "link_labeled",
+          "named": true
+        },
+        {
+          "type": "plus",
           "named": true
         },
         {
@@ -1139,6 +1219,14 @@
           "named": true
         },
         {
+          "type": "emDash",
+          "named": true
+        },
+        {
+          "type": "enDash",
+          "named": true
+        },
+        {
           "type": "equal",
           "named": true
         },
@@ -1163,6 +1251,10 @@
           "named": true
         },
         {
+          "type": "hyphen",
+          "named": true
+        },
+        {
           "type": "in_text",
           "named": true
         },
@@ -1180,6 +1272,10 @@
         },
         {
           "type": "link_labeled",
+          "named": true
+        },
+        {
+          "type": "plus",
           "named": true
         },
         {
@@ -1258,6 +1354,14 @@
           "named": true
         },
         {
+          "type": "emDash",
+          "named": true
+        },
+        {
+          "type": "enDash",
+          "named": true
+        },
+        {
           "type": "equal",
           "named": true
         },
@@ -1282,6 +1386,10 @@
           "named": true
         },
         {
+          "type": "hyphen",
+          "named": true
+        },
+        {
           "type": "in_text",
           "named": true
         },
@@ -1299,6 +1407,10 @@
         },
         {
           "type": "link_labeled",
+          "named": true
+        },
+        {
+          "type": "plus",
           "named": true
         },
         {
@@ -1377,6 +1489,14 @@
           "named": true
         },
         {
+          "type": "emDash",
+          "named": true
+        },
+        {
+          "type": "enDash",
+          "named": true
+        },
+        {
           "type": "equal",
           "named": true
         },
@@ -1401,6 +1521,10 @@
           "named": true
         },
         {
+          "type": "hyphen",
+          "named": true
+        },
+        {
           "type": "in_text",
           "named": true
         },
@@ -1418,6 +1542,10 @@
         },
         {
           "type": "link_labeled",
+          "named": true
+        },
+        {
+          "type": "plus",
           "named": true
         },
         {
@@ -1633,6 +1761,14 @@
     "named": true
   },
   {
+    "type": "emDash",
+    "named": true
+  },
+  {
+    "type": "enDash",
+    "named": true
+  },
+  {
     "type": "equal",
     "named": true
   },
@@ -1673,6 +1809,10 @@
     "named": true
   },
   {
+    "type": "hyphen",
+    "named": true
+  },
+  {
     "type": "index",
     "named": true
   },
@@ -1686,6 +1826,10 @@
   },
   {
     "type": "paren_open",
+    "named": true
+  },
+  {
+    "type": "plus",
     "named": true
   },
   {

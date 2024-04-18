@@ -490,6 +490,22 @@
         {
           "type": "SYMBOL",
           "name": "text"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "plus"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "emDash"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "enDash"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hyphen"
         }
       ]
     },
@@ -987,7 +1003,7 @@
     },
     "hyphen": {
       "type": "STRING",
-      "value": ":"
+      "value": "-"
     }
   },
   "extras": [

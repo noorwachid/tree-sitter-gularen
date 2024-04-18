@@ -91,6 +91,11 @@ module.exports = grammar({
 			$.escape,
 
 			$.text, 
+
+			$.plus,
+			$.emDash,
+			$.enDash,
+			$.hyphen,
 		),
 
 		comment: $ => seq(/~[^~].*/, $._end_block),
@@ -135,7 +140,6 @@ module.exports = grammar({
 		emDash: $ => '---',
 		enDash: $ => '--',
 		hyphen: $ => '-',
-		hyphen: $ => ':',
 	},
 
 	externals: $ => [
