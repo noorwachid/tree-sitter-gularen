@@ -332,7 +332,7 @@
     },
     "admonition_key": {
       "type": "PATTERN",
-      "value": "[^:]+"
+      "value": "[^:]+:?"
     },
     "paragraph": {
       "type": "PREC_RIGHT",

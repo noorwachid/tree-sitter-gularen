@@ -44,7 +44,7 @@ module.exports = grammar({
 		reference_key: $ => /.*/,
 
 		admonition: $ => seq('+ ', $.admonition_key),
-		admonition_key: $ => /[^:]+/,
+		admonition_key: $ => /[^:]+:?/,
 
 		paragraph: $ => prec.right(seq(repeat1(choice($._inline, $._newline)), optional($._newline_plus))),
 
