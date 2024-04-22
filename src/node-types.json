@@ -1,20 +1,5 @@
 [
   {
-    "type": "admonition",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "admonition_key",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "annotation",
     "named": true,
     "fields": {},
@@ -36,11 +21,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "annotation_value",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "bold",
@@ -493,10 +473,6 @@
       "required": false,
       "types": [
         {
-          "type": "admonition",
-          "named": true
-        },
-        {
           "type": "chapter",
           "named": true
         },
@@ -522,10 +498,6 @@
         },
         {
           "type": "paragraph",
-          "named": true
-        },
-        {
-          "type": "reference",
           "named": true
         },
         {
@@ -1138,30 +1110,6 @@
     }
   },
   {
-    "type": "reference",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "ampersand",
-          "named": true
-        },
-        {
-          "type": "reference_key",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "reference_key",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "section",
     "named": true,
     "fields": {},
@@ -1660,15 +1608,7 @@
     }
   },
   {
-    "type": " ",
-    "named": false
-  },
-  {
     "type": "*",
-    "named": false
-  },
-  {
-    "type": "+ ",
     "named": false
   },
   {
@@ -1704,10 +1644,6 @@
     "named": true
   },
   {
-    "type": "admonition_key",
-    "named": true
-  },
-  {
     "type": "ampersand",
     "named": true
   },
@@ -1717,6 +1653,10 @@
   },
   {
     "type": "annotation_key",
+    "named": true
+  },
+  {
+    "type": "annotation_value",
     "named": true
   },
   {

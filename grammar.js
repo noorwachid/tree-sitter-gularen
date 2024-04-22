@@ -17,9 +17,6 @@ module.exports = grammar({
 			$.numbered_list,
 			$.check_list,
 
-			$.reference,
-			$.admonition,
-
 			$.paragraph,
 
 			$._newline_plus,
@@ -39,12 +36,6 @@ module.exports = grammar({
 		code_block_labeled: $ => seq($.fence_open, $.code_block_label, $._newline, $.code_block_content, $.fence_close),
 		code_block: $ => seq($.fence_open, $._newline, $.code_block_content, $.fence_close),
 		code_block_content: $ => repeat1($._code_block_line),
-
-		reference: $ => seq($.ampersand, ' ', $.reference_key),
-		reference_key: $ => /.*/,
-
-		admonition: $ => seq('+ ', $.admonition_key),
-		admonition_key: $ => /[^:]+:?/,
 
 		paragraph: $ => prec.right(seq(repeat1(choice($._inline, $._newline)), optional($._newline_plus))),
 
