@@ -42,7 +42,7 @@ module.exports = grammar({
 		_end_block: $ => choice($._newline, $._newline_plus),
 
 		_inline: $ => choice(
-			$.comment, 
+			$.comment,
 			$.annotation,
 
 			$.dinkus,
@@ -52,10 +52,6 @@ module.exports = grammar({
 			$.underline,
 
 			$.code_inline,
-
-			$.highlight,
-			$.change_added,
-			$.change_removed,
 
 			$.in_text,
 			$.footnote,
@@ -81,7 +77,7 @@ module.exports = grammar({
 
 			$.escape,
 
-			$.text, 
+			$.text,
 
 			$.plus,
 			$.em_dash,
@@ -103,13 +99,9 @@ module.exports = grammar({
 		date: $ => /\+[0-9-]+/,
 		time: $ => /\+[0-9:]+/,
 
-		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underline, $.highlight)), '*'),
-		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underline, $.highlight)), '/'),
-		underline: $ => seq('_', repeat1(choice($.text, $.bold, $.italic, $.highlight)), '_'),
-
-		highlight: $ => seq('==', repeat1(choice($.text, $.bold, $.italic, $.underline)), '=='),
-		change_added: $ => seq('=+', repeat1(choice($.text, $.bold, $.italic, $.underline)), '+='),
-		change_removed: $ => seq('=-', repeat1(choice($.text, $.bold, $.italic, $.underline)), '-='),
+		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underline)), '*'),
+		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underline)), '/'),
+		underline: $ => seq('_', repeat1(choice($.text, $.bold, $.italic)), '_'),
 
 		code_inline: $ => seq($.backtick, $.code_inline_content, $.backtick),
 

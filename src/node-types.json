@@ -31,64 +31,6 @@
       "required": true,
       "types": [
         {
-          "type": "highlight",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "change_added",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "change_removed",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
           "type": "italic",
           "named": true
         },
@@ -125,14 +67,6 @@
         },
         {
           "type": "break",
-          "named": true
-        },
-        {
-          "type": "change_added",
-          "named": true
-        },
-        {
-          "type": "change_removed",
           "named": true
         },
         {
@@ -181,10 +115,6 @@
         },
         {
           "type": "head3",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -267,14 +197,6 @@
           "named": true
         },
         {
-          "type": "change_added",
-          "named": true
-        },
-        {
-          "type": "change_removed",
-          "named": true
-        },
-        {
           "type": "code_inline",
           "named": true
         },
@@ -316,10 +238,6 @@
         },
         {
           "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -543,33 +461,6 @@
     }
   },
   {
-    "type": "highlight",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "in_text",
     "named": true,
     "fields": {},
@@ -633,10 +524,6 @@
       "types": [
         {
           "type": "bold",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -737,14 +624,6 @@
           "named": true
         },
         {
-          "type": "change_added",
-          "named": true
-        },
-        {
-          "type": "change_removed",
-          "named": true
-        },
-        {
           "type": "code_inline",
           "named": true
         },
@@ -786,10 +665,6 @@
         },
         {
           "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -868,14 +743,6 @@
           "named": true
         },
         {
-          "type": "change_added",
-          "named": true
-        },
-        {
-          "type": "change_removed",
-          "named": true
-        },
-        {
           "type": "code_inline",
           "named": true
         },
@@ -917,10 +784,6 @@
         },
         {
           "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -1003,14 +866,6 @@
           "named": true
         },
         {
-          "type": "change_added",
-          "named": true
-        },
-        {
-          "type": "change_removed",
-          "named": true
-        },
-        {
           "type": "code_inline",
           "named": true
         },
@@ -1052,10 +907,6 @@
         },
         {
           "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -1134,14 +985,6 @@
           "named": true
         },
         {
-          "type": "change_added",
-          "named": true
-        },
-        {
-          "type": "change_removed",
-          "named": true
-        },
-        {
           "type": "code_inline",
           "named": true
         },
@@ -1187,10 +1030,6 @@
         },
         {
           "type": "head2",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -1269,14 +1108,6 @@
           "named": true
         },
         {
-          "type": "change_added",
-          "named": true
-        },
-        {
-          "type": "change_removed",
-          "named": true
-        },
-        {
           "type": "code_inline",
           "named": true
         },
@@ -1322,10 +1153,6 @@
         },
         {
           "type": "head1",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -1404,14 +1231,6 @@
           "named": true
         },
         {
-          "type": "change_added",
-          "named": true
-        },
-        {
-          "type": "change_removed",
-          "named": true
-        },
-        {
           "type": "code_inline",
           "named": true
         },
@@ -1457,10 +1276,6 @@
         },
         {
           "type": "head0",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -1524,10 +1339,6 @@
       "types": [
         {
           "type": "bold",
-          "named": true
-        },
-        {
-          "type": "highlight",
           "named": true
         },
         {
@@ -1612,27 +1423,7 @@
     "named": false
   },
   {
-    "type": "+=",
-    "named": false
-  },
-  {
-    "type": "-=",
-    "named": false
-  },
-  {
     "type": "/",
-    "named": false
-  },
-  {
-    "type": "=+",
-    "named": false
-  },
-  {
-    "type": "=-",
-    "named": false
-  },
-  {
-    "type": "==",
     "named": false
   },
   {
