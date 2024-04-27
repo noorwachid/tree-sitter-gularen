@@ -25,10 +25,6 @@
         },
         {
           "type": "SYMBOL",
-          "name": "subtitle"
-        },
-        {
-          "type": "SYMBOL",
           "name": "code_block_labeled"
         },
         {
@@ -103,26 +99,6 @@
         {
           "type": "SYMBOL",
           "name": "head1"
-        },
-        {
-          "type": "REPEAT1",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_inline"
-          }
-        },
-        {
-          "type": "SYMBOL",
-          "name": "_end_block"
-        }
-      ]
-    },
-    "subtitle": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "head0"
         },
         {
           "type": "REPEAT1",
@@ -853,10 +829,6 @@
     {
       "type": "SYMBOL",
       "name": "head1"
-    },
-    {
-      "type": "SYMBOL",
-      "name": "head0"
     },
     {
       "type": "SYMBOL",

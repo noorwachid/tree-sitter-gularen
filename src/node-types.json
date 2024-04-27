@@ -425,10 +425,6 @@
         {
           "type": "subsection",
           "named": true
-        },
-        {
-          "type": "subtitle",
-          "named": true
         }
       ]
     }
@@ -1207,129 +1203,6 @@
     }
   },
   {
-    "type": "subtitle",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
-          "type": "break",
-          "named": true
-        },
-        {
-          "type": "code_inline",
-          "named": true
-        },
-        {
-          "type": "comment",
-          "named": true
-        },
-        {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "em_dash",
-          "named": true
-        },
-        {
-          "type": "en_dash",
-          "named": true
-        },
-        {
-          "type": "equal",
-          "named": true
-        },
-        {
-          "type": "escape",
-          "named": true
-        },
-        {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "head0",
-          "named": true
-        },
-        {
-          "type": "hyphen",
-          "named": true
-        },
-        {
-          "type": "in_text",
-          "named": true
-        },
-        {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_labeled",
-          "named": true
-        },
-        {
-          "type": "plus",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_labeled",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "underline",
     "named": true,
     "fields": {},
@@ -1520,10 +1393,6 @@
   },
   {
     "type": "hash_tag",
-    "named": true
-  },
-  {
-    "type": "head0",
     "named": true
   },
   {
