@@ -343,6 +343,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "quote"
+        },
+        {
+          "type": "SYMBOL",
           "name": "code_inline"
         },
         {
@@ -520,6 +524,10 @@
               {
                 "type": "SYMBOL",
                 "name": "underline"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "quote"
               }
             ]
           }
@@ -553,6 +561,10 @@
               {
                 "type": "SYMBOL",
                 "name": "underline"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "quote"
               }
             ]
           }
@@ -586,6 +598,10 @@
               {
                 "type": "SYMBOL",
                 "name": "italic"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "quote"
               }
             ]
           }
@@ -593,6 +609,43 @@
         {
           "type": "STRING",
           "value": "_"
+        }
+      ]
+    },
+    "quote": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT1",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "text"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "bold"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "italic"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "underline"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
         }
       ]
     },

@@ -35,6 +35,10 @@
           "named": true
         },
         {
+          "type": "quote",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
@@ -143,6 +147,10 @@
         },
         {
           "type": "plus",
+          "named": true
+        },
+        {
+          "type": "quote",
           "named": true
         },
         {
@@ -266,6 +274,10 @@
         },
         {
           "type": "plus",
+          "named": true
+        },
+        {
+          "type": "quote",
           "named": true
         },
         {
@@ -523,6 +535,10 @@
           "named": true
         },
         {
+          "type": "quote",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
@@ -692,6 +708,10 @@
           "named": true
         },
         {
+          "type": "quote",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
@@ -815,6 +835,10 @@
           "named": true
         },
         {
+          "type": "quote",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
@@ -934,6 +958,10 @@
           "named": true
         },
         {
+          "type": "quote",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
@@ -951,6 +979,33 @@
         },
         {
           "type": "view_labeled",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "quote",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "bold",
+          "named": true
+        },
+        {
+          "type": "italic",
+          "named": true
+        },
+        {
+          "type": "text",
+          "named": true
+        },
+        {
+          "type": "underline",
           "named": true
         }
       ]
@@ -1054,6 +1109,10 @@
         },
         {
           "type": "plus",
+          "named": true
+        },
+        {
+          "type": "quote",
           "named": true
         },
         {
@@ -1180,6 +1239,10 @@
           "named": true
         },
         {
+          "type": "quote",
+          "named": true
+        },
+        {
           "type": "text",
           "named": true
         },
@@ -1216,6 +1279,10 @@
         },
         {
           "type": "italic",
+          "named": true
+        },
+        {
+          "type": "quote",
           "named": true
         },
         {
@@ -1290,6 +1357,10 @@
         }
       ]
     }
+  },
+  {
+    "type": "\"",
+    "named": false
   },
   {
     "type": "*",

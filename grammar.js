@@ -48,6 +48,7 @@ module.exports = grammar({
 			$.bold,
 			$.italic,
 			$.underline,
+			$.quote,
 
 			$.code_inline,
 
@@ -97,9 +98,10 @@ module.exports = grammar({
 		date: $ => /\+[0-9-]+/,
 		time: $ => /\+[0-9:]+/,
 
-		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underline)), '*'),
-		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underline)), '/'),
-		underline: $ => seq('_', repeat1(choice($.text, $.bold, $.italic)), '_'),
+		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underline, $.quote)), '*'),
+		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underline, $.quote)), '/'),
+		underline: $ => seq('_', repeat1(choice($.text, $.bold, $.italic, $.quote)), '_'),
+		quote: $ => seq('"', repeat1(choice($.text, $.bold, $.italic, $.underline)), '"'),
 
 		code_inline: $ => seq($.backtick, $.code_inline_content, $.backtick),
 
