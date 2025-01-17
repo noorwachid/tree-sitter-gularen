@@ -1,0 +1,33 @@
+{
+  "grammars": [
+    {
+      "name": "treesitter-gularen",
+      "camelcase": "TreesitterGularen",
+      "scope": "source.gularen",
+      "path": ".",
+      "file-types": [
+        "gr",
+        "gularen"
+      ],
+      "highlights": [
+        "queries/highlights.scm"
+      ]
+    }
+  ],
+  "metadata": {
+    "version": "1.0.0",
+    "license": "ISC",
+    "description": "",
+    "links": {
+      "repository": "https://github.com/tree-sitter/tree-sitter-treesitter-gularen"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}

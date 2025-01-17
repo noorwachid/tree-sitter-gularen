@@ -15,17 +15,13 @@
     "tree-sitter-cli": "^0.20.8",
     "prebuildify": "^6.0.0"
   },
-  "tree-sitter": [
-    {
-      "scope": "source.gularen",
-      "file-types": [
-        "gr",
-        "gularen"
-      ],
-      "highlights": [
-        "queries/highlights.scm"
-      ]
-    }
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
   ],
   "dependencies": {
     "node-gyp-build": "^4.8.0"
@@ -37,13 +33,5 @@
     "tree_sitter": {
       "optional": true
     }
-  },
-  "files": [
-    "grammar.js",
-    "binding.gyp",
-    "prebuilds/**",
-    "bindings/node/*",
-    "queries/*",
-    "src/**"
-  ]
+  }
 }
