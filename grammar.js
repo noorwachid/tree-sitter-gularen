@@ -1,169 +1,96 @@
 module.exports = grammar({
-	name: 'gularen',
+  name: 'gularen',
 
-	rules: {
-		document: $ => repeat($._block),
+  extras: _ => ['\r'],
 
-		_block: $ => choice(
-			$.chapter,
-			$.section,
-			$.subsection,
+  rules: {
+    document: $ => repeat($._block),
 
-			$.code_block_labeled,
-			$.code_block,
+    _block: $ => choice(
+      $.code_block,
+      $.section,
+      $.subsection,
+      $.subsubsection,
+      $.bullet_list,
+      $.numbered_list,
+      $.check_list,
+      $.table,
+      $.metadata,
+      $.func,
+      $.admon,
+      $.paragraph,
+      '\n'
+    ),
 
-			$.list,
-			$.numbered_list,
-			$.check_list,
+    code_block: $ => choice($._code_block5, $._code_block4, $._code_block3),
 
-			$.paragraph,
+    _code_block5: $ => seq(alias($.fence5, $.fence), optional(seq(choice(' !', ' '), $.language)), '\n', optional($.source), alias($.fence5, $.fence)),
+    _code_block4: $ => seq(alias($.fence4, $.fence), optional(seq(choice(' !', ' '), $.language)), '\n', optional($.source), alias($.fence4, $.fence)),
+    _code_block3: $ => seq(alias($.fence3, $.fence), optional(seq(choice(' !', ' '), $.language)), '\n', optional($.source), alias($.fence3, $.fence)),
 
-			$._newline_plus,
-		),
+    section: $ => prec.right(seq('>>> ', repeat1($._inline), optional('\n'))),
+    subsection: $ => prec.right(seq('>> ', repeat1($._inline), optional('\n'))),
+    subsubsection: $ => prec.right(seq('> ', repeat1($._inline), optional('\n'))),
 
-		chapter: $ => seq($.head3, repeat1($._inline), $._end_block),
-		section: $ => seq($.head2, repeat1($._inline), $._end_block),
-		subsection: $ => seq($.head1, repeat1($._inline), $._end_block),
+    bullet_list: $ => prec.right(seq($.bullet, ' ', repeat1($._inline), optional('\n'))),
+    numbered_list: $ => prec.right(seq($.index, ' ', repeat1($._inline), optional('\n'))),
+    check_list: $ => prec.right(seq('[', choice($.x, ' '), '] ', repeat1($._inline), optional('\n'))),
 
-		list: $ => prec.right(repeat1(seq($.bullet, repeat1($._inline), $._end_block))),
+    table: $ => prec.right(repeat1(choice($.table_row, $.table_bar))),
+    table_row: $ => prec.right(seq($.pipe, repeat1(seq(alias(repeat1($._inline), $.table_cell), $.pipe)), optional('\n'))),
+    table_bar: $ => prec.right(seq($.pipe, repeat1(seq($.bar, $.pipe)), optional('\n'))),
 
-		numbered_list: $ => prec.right(repeat1(seq($.index, repeat1($._inline), $._end_block))),
+    bar: _ => choice(/-{3,}/, /:-{1,}:/, /:-{2,}/, /-{2,}:/),
+    pipe: _ => '|',
 
-		check_list: $ => prec.right(repeat1(seq($.square_open, choice($.blank, $.x), $.square_close, repeat1($._inline), $._end_block))),
+    admon: $ => prec.right(seq($.admon_label, choice(seq(' ', repeat1($._inline), optional('\n')), '\n'))),
+    admon_label: _ => seq(choice('NOTE', 'HINT', 'IMPORTANT', 'WARNING', 'SEE', 'TIP'), '!'),
 
-		code_block_labeled: $ => seq($.fence_open, $.code_block_label, $._newline, $.code_block_content, $.fence_close),
-		code_block: $ => seq($.fence_open, $._newline, $.code_block_content, $.fence_close),
-		code_block_content: $ => repeat1($._code_block_line),
+    metadata: $ => prec.right(seq('% ', $.id, ': ', $.string)),
 
-		paragraph: $ => prec.right(seq(repeat1(choice($._inline, $._newline)), optional($._newline_plus))),
+    func: $ => prec.right(seq('% ', $.id, choice(
+      optional('\n'),
+      seq(' ', $.string),
+      seq(' ', $.hashtable),
+    ))),
+    id: _ => /[a-z-]+/,
+    string: _ => seq('"', /[^"]+/, '"'),
+    hashtable: $ => seq('{\n', repeat1(seq(/\s+/, $.id, ': ', $.string, '\n')), '}\n'),
 
-		_end_block: $ => choice($._newline, $._newline_plus),
+    bullet: _ => '-',
+    index: _ => /[0-9]+\./,
+    x: _ => 'x',
 
-		_inline: $ => choice(
-			$.comment,
-			$.annotation,
+    fence5: _ => '`````',
+    fence4: _ => '````',
+    fence3: _ => '```',
+    source: _ => repeat1(seq(/[^\n]*/, '\n')),
+    language: _ => /[a-z0-9-]+/,
 
-			$.dinkus,
+    paragraph: $ => prec.right(seq(repeat1($._paragraph_line), optional('\n'))),
+    _paragraph_line: $ => seq(repeat1($._inline), '\n'),
 
-			$.bold,
-			$.italic,
-			$.underline,
-			$.quote,
+    _inline: $ => choice(
+      $.escape,
+      $.code_inline,
+      $.strong_emphasis,
+      $.emphasis,
+      $.comment,
+      $.break,
+      $._text
+    ),
 
-			$.code_inline,
+    code_inline: $ => seq($.backtick, $.source_inline, $.backtick),
+    backtick: _ => '`',
 
-			$.in_text,
-			$.footnote,
+    source_inline: _ => /[^`]+/,
 
-			$.include,
-
-			$.view_labeled,
-			$.view,
-
-			$.link_labeled,
-			$.link,
-
-			$.break,
-
-			$.datetime,
-			$.date,
-			$.time,
-
-			$.account_tag,
-			$.hash_tag,
-
-			$.equal,
-
-			$.escape,
-
-			$.text,
-
-			$.plus,
-			$.em_dash,
-			$.en_dash,
-			$.hyphen,
-		),
-
-		comment: $ => seq(/~[^~].*/, $._end_block),
-		annotation: $ => seq('~~', $.annotation_key, $.annotation_assign, $.annotation_value, $._end_block),
-		annotation_key: $ => /[0-9A-Za-z-]+/,
-		annotation_assign: $ => / += +/,
-		annotation_value: $ => /.*/,
-
-		dinkus: $ => '***',
-
-		break: $ => /<{1,3}/,
-
-		datetime: $ => /\+[0-9-]+ [0-9:]+/,
-		date: $ => /\+[0-9-]+/,
-		time: $ => /\+[0-9:]+/,
-
-		bold: $ => seq('*', repeat1(choice($.text, $.italic, $.underline, $.quote)), '*'),
-		italic: $ => seq('/', repeat1(choice($.text, $.bold, $.underline, $.quote)), '/'),
-		underline: $ => seq('_', repeat1(choice($.text, $.bold, $.italic, $.quote)), '_'),
-		quote: $ => seq('"', repeat1(choice($.text, $.bold, $.italic, $.underline)), '"'),
-
-		code_inline: $ => seq($.backtick, $.code_inline_content, $.backtick),
-
-		equal: $ => '=',
-
-		view_labeled: $ => seq($.exclamation, $.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
-		view: $ => seq($.exclamation, $.square_open, $.resource, $.square_close),
-
-		link_labeled: $ => seq($.square_open, $.resource, $.square_close, $.paren_open, $.label, $.paren_close),
-		link: $ => seq($.square_open, $.resource, $.square_close),
-
-		footnote: $ => seq($.caret, $.square_open, $.resource, $.square_close),
-		in_text: $ => seq($.ampersand, $.square_open, $.resource, $.square_close),
-		include: $ => seq($.question, $.square_open, $.resource, $.square_close),
-
-		escape: $ => /\\./,
-
-		plus: $ => '+',
-		em_dash: $ => '---',
-		en_dash: $ => '--',
-		hyphen: $ => '-',
-	},
-
-	externals: $ => [
-		$._newline,
-		$._newline_plus,
-
-		$.head3,
-		$.head2,
-		$.head1,
-
-		$.bullet,
-		$.index,
-		$.blank,
-		$.x,
-
-		$.fence_open,
-		$.fence_close,
-		$.code_block_label,
-		$._code_block_line,
-
-		$.backtick,
-		$.code_inline_content,
-
-		$.exclamation,
-		$.question,
-		$.caret,
-		$.ampersand,
-
-		$.square_open,
-		$.square_close,
-		$.resource,
-
-		$.paren_open,
-		$.paren_close,
-		$.label,
-
-		$.account_tag,
-		$.hash_tag,
-
-		$.text,
-	],
-
+    strong_emphasis: $ => prec.left(seq('*', $._inline, '*')),
+    emphasis: $ => prec.left(seq('_', $._inline, '_')),
+    comment: _ => seq('# ', /[^\n]*/),
+    break: _ => '<',
+    escape: _ => /\\./,
+    _text: _ => /[^\n]/,
+  },
 });
 

@@ -1,6 +1,6 @@
 [
   {
-    "type": "annotation",
+    "type": "admon",
     "named": true,
     "fields": {},
     "children": {
@@ -8,65 +8,7 @@
       "required": true,
       "types": [
         {
-          "type": "annotation_assign",
-          "named": true
-        },
-        {
-          "type": "annotation_key",
-          "named": true
-        },
-        {
-          "type": "annotation_value",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "bold",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "chapter",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "bold",
+          "type": "admon_label",
           "named": true
         },
         {
@@ -82,27 +24,7 @@
           "named": true
         },
         {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "em_dash",
-          "named": true
-        },
-        {
-          "type": "en_dash",
-          "named": true
-        },
-        {
-          "type": "equal",
+          "type": "emphasis",
           "named": true
         },
         {
@@ -110,67 +32,56 @@
           "named": true
         },
         {
-          "type": "footnote",
+          "type": "strong_emphasis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "admon_label",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bar",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "bullet_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "break",
           "named": true
         },
         {
-          "type": "hash_tag",
+          "type": "bullet",
           "named": true
         },
         {
-          "type": "head3",
+          "type": "code_inline",
           "named": true
         },
         {
-          "type": "hyphen",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "in_text",
+          "type": "emphasis",
           "named": true
         },
         {
-          "type": "include",
+          "type": "escape",
           "named": true
         },
         {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_labeled",
-          "named": true
-        },
-        {
-          "type": "plus",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_labeled",
+          "type": "strong_emphasis",
           "named": true
         }
       ]
@@ -182,24 +93,8 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "blank",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
         {
           "type": "break",
           "named": true
@@ -213,27 +108,7 @@
           "named": true
         },
         {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "em_dash",
-          "named": true
-        },
-        {
-          "type": "en_dash",
-          "named": true
-        },
-        {
-          "type": "equal",
+          "type": "emphasis",
           "named": true
         },
         {
@@ -241,71 +116,7 @@
           "named": true
         },
         {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "hyphen",
-          "named": true
-        },
-        {
-          "type": "in_text",
-          "named": true
-        },
-        {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_labeled",
-          "named": true
-        },
-        {
-          "type": "plus",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_labeled",
+          "type": "strong_emphasis",
           "named": true
         },
         {
@@ -324,47 +135,15 @@
       "required": true,
       "types": [
         {
-          "type": "code_block_content",
+          "type": "fence",
           "named": true
         },
         {
-          "type": "fence_close",
+          "type": "language",
           "named": true
         },
         {
-          "type": "fence_open",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "code_block_content",
-    "named": true,
-    "fields": {}
-  },
-  {
-    "type": "code_block_labeled",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "code_block_content",
-          "named": true
-        },
-        {
-          "type": "code_block_label",
-          "named": true
-        },
-        {
-          "type": "fence_close",
-          "named": true
-        },
-        {
-          "type": "fence_open",
+          "type": "source",
           "named": true
         }
       ]
@@ -383,7 +162,7 @@
           "named": true
         },
         {
-          "type": "code_inline_content",
+          "type": "source_inline",
           "named": true
         }
       ]
@@ -404,7 +183,11 @@
       "required": false,
       "types": [
         {
-          "type": "chapter",
+          "type": "admon",
+          "named": true
+        },
+        {
+          "type": "bullet_list",
           "named": true
         },
         {
@@ -416,11 +199,11 @@
           "named": true
         },
         {
-          "type": "code_block_labeled",
+          "type": "func",
           "named": true
         },
         {
-          "type": "list",
+          "type": "metadata",
           "named": true
         },
         {
@@ -438,202 +221,28 @@
         {
           "type": "subsection",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "footnote",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
+        },
         {
-          "type": "caret",
+          "type": "subsubsection",
           "named": true
         },
         {
-          "type": "resource",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
+          "type": "table",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "in_text",
+    "type": "emphasis",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
-        {
-          "type": "ampersand",
-          "named": true
-        },
-        {
-          "type": "resource",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "include",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "question",
-          "named": true
-        },
-        {
-          "type": "resource",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "italic",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "link",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "resource",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "link_labeled",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "paren_close",
-          "named": true
-        },
-        {
-          "type": "paren_open",
-          "named": true
-        },
-        {
-          "type": "resource",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "list",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
         {
           "type": "break",
-          "named": true
-        },
-        {
-          "type": "bullet",
           "named": true
         },
         {
@@ -645,27 +254,7 @@
           "named": true
         },
         {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "em_dash",
-          "named": true
-        },
-        {
-          "type": "en_dash",
-          "named": true
-        },
-        {
-          "type": "equal",
+          "type": "emphasis",
           "named": true
         },
         {
@@ -673,63 +262,68 @@
           "named": true
         },
         {
-          "type": "footnote",
+          "type": "strong_emphasis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "func",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "hashtable",
           "named": true
         },
         {
-          "type": "hash_tag",
+          "type": "id",
           "named": true
         },
         {
-          "type": "hyphen",
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "hashtable",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "id",
           "named": true
         },
         {
-          "type": "in_text",
+          "type": "string",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "metadata",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "id",
           "named": true
         },
         {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_labeled",
-          "named": true
-        },
-        {
-          "type": "plus",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_labeled",
+          "type": "string",
           "named": true
         }
       ]
@@ -744,18 +338,6 @@
       "required": true,
       "types": [
         {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
           "type": "break",
           "named": true
         },
@@ -768,27 +350,7 @@
           "named": true
         },
         {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "em_dash",
-          "named": true
-        },
-        {
-          "type": "en_dash",
-          "named": true
-        },
-        {
-          "type": "equal",
+          "type": "emphasis",
           "named": true
         },
         {
@@ -796,67 +358,11 @@
           "named": true
         },
         {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "hyphen",
-          "named": true
-        },
-        {
-          "type": "in_text",
-          "named": true
-        },
-        {
-          "type": "include",
-          "named": true
-        },
-        {
           "type": "index",
           "named": true
         },
         {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_labeled",
-          "named": true
-        },
-        {
-          "type": "plus",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_labeled",
+          "type": "strong_emphasis",
           "named": true
         }
       ]
@@ -871,18 +377,6 @@
       "required": false,
       "types": [
         {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
           "type": "break",
           "named": true
         },
@@ -895,27 +389,7 @@
           "named": true
         },
         {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "em_dash",
-          "named": true
-        },
-        {
-          "type": "en_dash",
-          "named": true
-        },
-        {
-          "type": "equal",
+          "type": "emphasis",
           "named": true
         },
         {
@@ -923,90 +397,7 @@
           "named": true
         },
         {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "hyphen",
-          "named": true
-        },
-        {
-          "type": "in_text",
-          "named": true
-        },
-        {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_labeled",
-          "named": true
-        },
-        {
-          "type": "plus",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_labeled",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "quote",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "bold",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "underline",
+          "type": "strong_emphasis",
           "named": true
         }
       ]
@@ -1018,20 +409,8 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
         {
           "type": "break",
           "named": true
@@ -1045,27 +424,7 @@
           "named": true
         },
         {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "em_dash",
-          "named": true
-        },
-        {
-          "type": "en_dash",
-          "named": true
-        },
-        {
-          "type": "equal",
+          "type": "emphasis",
           "named": true
         },
         {
@@ -1073,67 +432,52 @@
           "named": true
         },
         {
-          "type": "footnote",
+          "type": "strong_emphasis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "string",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "strong_emphasis",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "break",
           "named": true
         },
         {
-          "type": "hash_tag",
+          "type": "code_inline",
           "named": true
         },
         {
-          "type": "head2",
+          "type": "comment",
           "named": true
         },
         {
-          "type": "hyphen",
+          "type": "emphasis",
           "named": true
         },
         {
-          "type": "in_text",
+          "type": "escape",
           "named": true
         },
         {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_labeled",
-          "named": true
-        },
-        {
-          "type": "plus",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_labeled",
+          "type": "strong_emphasis",
           "named": true
         }
       ]
@@ -1145,20 +489,8 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "account_tag",
-          "named": true
-        },
-        {
-          "type": "annotation",
-          "named": true
-        },
-        {
-          "type": "bold",
-          "named": true
-        },
         {
           "type": "break",
           "named": true
@@ -1172,27 +504,7 @@
           "named": true
         },
         {
-          "type": "date",
-          "named": true
-        },
-        {
-          "type": "datetime",
-          "named": true
-        },
-        {
-          "type": "dinkus",
-          "named": true
-        },
-        {
-          "type": "em_dash",
-          "named": true
-        },
-        {
-          "type": "en_dash",
-          "named": true
-        },
-        {
-          "type": "equal",
+          "type": "emphasis",
           "named": true
         },
         {
@@ -1200,74 +512,49 @@
           "named": true
         },
         {
-          "type": "footnote",
-          "named": true
-        },
-        {
-          "type": "hash_tag",
-          "named": true
-        },
-        {
-          "type": "head1",
-          "named": true
-        },
-        {
-          "type": "hyphen",
-          "named": true
-        },
-        {
-          "type": "in_text",
-          "named": true
-        },
-        {
-          "type": "include",
-          "named": true
-        },
-        {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "link",
-          "named": true
-        },
-        {
-          "type": "link_labeled",
-          "named": true
-        },
-        {
-          "type": "plus",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
-          "named": true
-        },
-        {
-          "type": "time",
-          "named": true
-        },
-        {
-          "type": "underline",
-          "named": true
-        },
-        {
-          "type": "view",
-          "named": true
-        },
-        {
-          "type": "view_labeled",
+          "type": "strong_emphasis",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "underline",
+    "type": "subsubsection",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "break",
+          "named": true
+        },
+        {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "emphasis",
+          "named": true
+        },
+        {
+          "type": "escape",
+          "named": true
+        },
+        {
+          "type": "strong_emphasis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table",
     "named": true,
     "fields": {},
     "children": {
@@ -1275,26 +562,18 @@
       "required": true,
       "types": [
         {
-          "type": "bold",
+          "type": "table_bar",
           "named": true
         },
         {
-          "type": "italic",
-          "named": true
-        },
-        {
-          "type": "quote",
-          "named": true
-        },
-        {
-          "type": "text",
+          "type": "table_row",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "view",
+    "type": "table_bar",
     "named": true,
     "fields": {},
     "children": {
@@ -1302,26 +581,53 @@
       "required": true,
       "types": [
         {
-          "type": "exclamation",
+          "type": "bar",
           "named": true
         },
         {
-          "type": "resource",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
+          "type": "pipe",
           "named": true
         }
       ]
     }
   },
   {
-    "type": "view_labeled",
+    "type": "table_cell",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "break",
+          "named": true
+        },
+        {
+          "type": "code_inline",
+          "named": true
+        },
+        {
+          "type": "comment",
+          "named": true
+        },
+        {
+          "type": "emphasis",
+          "named": true
+        },
+        {
+          "type": "escape",
+          "named": true
+        },
+        {
+          "type": "strong_emphasis",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "table_row",
     "named": true,
     "fields": {},
     "children": {
@@ -1329,38 +635,42 @@
       "required": true,
       "types": [
         {
-          "type": "exclamation",
+          "type": "pipe",
           "named": true
         },
         {
-          "type": "label",
-          "named": true
-        },
-        {
-          "type": "paren_close",
-          "named": true
-        },
-        {
-          "type": "paren_open",
-          "named": true
-        },
-        {
-          "type": "resource",
-          "named": true
-        },
-        {
-          "type": "square_close",
-          "named": true
-        },
-        {
-          "type": "square_open",
+          "type": "table_cell",
           "named": true
         }
       ]
     }
+  },
+  {
+    "type": "\n",
+    "named": false
+  },
+  {
+    "type": " ",
+    "named": false
+  },
+  {
+    "type": " !",
+    "named": false
+  },
+  {
+    "type": "!",
+    "named": false
   },
   {
     "type": "\"",
+    "named": false
+  },
+  {
+    "type": "# ",
+    "named": false
+  },
+  {
+    "type": "% ",
     "named": false
   },
   {
@@ -1368,7 +678,51 @@
     "named": false
   },
   {
-    "type": "/",
+    "type": ": ",
+    "named": false
+  },
+  {
+    "type": "> ",
+    "named": false
+  },
+  {
+    "type": ">> ",
+    "named": false
+  },
+  {
+    "type": ">>> ",
+    "named": false
+  },
+  {
+    "type": "HINT",
+    "named": false
+  },
+  {
+    "type": "IMPORTANT",
+    "named": false
+  },
+  {
+    "type": "NOTE",
+    "named": false
+  },
+  {
+    "type": "SEE",
+    "named": false
+  },
+  {
+    "type": "TIP",
+    "named": false
+  },
+  {
+    "type": "WARNING",
+    "named": false
+  },
+  {
+    "type": "[",
+    "named": false
+  },
+  {
+    "type": "] ",
     "named": false
   },
   {
@@ -1376,31 +730,7 @@
     "named": false
   },
   {
-    "type": "account_tag",
-    "named": true
-  },
-  {
-    "type": "ampersand",
-    "named": true
-  },
-  {
-    "type": "annotation_assign",
-    "named": true
-  },
-  {
-    "type": "annotation_key",
-    "named": true
-  },
-  {
-    "type": "annotation_value",
-    "named": true
-  },
-  {
     "type": "backtick",
-    "named": true
-  },
-  {
-    "type": "blank",
     "named": true
   },
   {
@@ -1412,75 +742,15 @@
     "named": true
   },
   {
-    "type": "caret",
-    "named": true
-  },
-  {
-    "type": "code_block_label",
-    "named": true
-  },
-  {
-    "type": "code_inline_content",
-    "named": true
-  },
-  {
-    "type": "date",
-    "named": true
-  },
-  {
-    "type": "datetime",
-    "named": true
-  },
-  {
-    "type": "dinkus",
-    "named": true
-  },
-  {
-    "type": "em_dash",
-    "named": true
-  },
-  {
-    "type": "en_dash",
-    "named": true
-  },
-  {
-    "type": "equal",
-    "named": true
-  },
-  {
     "type": "escape",
     "named": true
   },
   {
-    "type": "exclamation",
+    "type": "fence",
     "named": true
   },
   {
-    "type": "fence_close",
-    "named": true
-  },
-  {
-    "type": "fence_open",
-    "named": true
-  },
-  {
-    "type": "hash_tag",
-    "named": true
-  },
-  {
-    "type": "head1",
-    "named": true
-  },
-  {
-    "type": "head2",
-    "named": true
-  },
-  {
-    "type": "head3",
-    "named": true
-  },
-  {
-    "type": "hyphen",
+    "type": "id",
     "named": true
   },
   {
@@ -1488,43 +758,15 @@
     "named": true
   },
   {
-    "type": "label",
+    "type": "language",
     "named": true
   },
   {
-    "type": "paren_close",
+    "type": "pipe",
     "named": true
   },
   {
-    "type": "paren_open",
-    "named": true
-  },
-  {
-    "type": "plus",
-    "named": true
-  },
-  {
-    "type": "question",
-    "named": true
-  },
-  {
-    "type": "resource",
-    "named": true
-  },
-  {
-    "type": "square_close",
-    "named": true
-  },
-  {
-    "type": "square_open",
-    "named": true
-  },
-  {
-    "type": "text",
-    "named": true
-  },
-  {
-    "type": "time",
+    "type": "source_inline",
     "named": true
   },
   {
@@ -1532,7 +774,11 @@
     "named": true
   },
   {
-    "type": "~~",
+    "type": "{\n",
+    "named": false
+  },
+  {
+    "type": "}\n",
     "named": false
   }
 ]
