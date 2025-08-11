@@ -14,7 +14,6 @@ module.exports = grammar({
       $.bullet_list,
       $.numbered_list,
       $.check_list,
-      $.table,
       $.metadata,
       $.func,
       $.admon,
@@ -35,10 +34,6 @@ module.exports = grammar({
     bullet_list: $ => prec.right(seq($.bullet, ' ', repeat1($._inline), optional('\n'))),
     numbered_list: $ => prec.right(seq($.index, ' ', repeat1($._inline), optional('\n'))),
     check_list: $ => prec.right(seq('[', choice($.x, ' '), '] ', repeat1($._inline), optional('\n'))),
-
-    table: $ => prec.right(repeat1(choice($.table_row, $.table_bar))),
-    table_row: $ => prec.right(seq($.pipe, repeat1(seq(alias(repeat1($._inline), $.table_cell), $.pipe)), optional('\n'))),
-    table_bar: $ => prec.right(seq($.pipe, repeat1(seq($.bar, $.pipe)), optional('\n'))),
 
     bar: _ => choice(/-{3,}/, /:-{1,}:/, /:-{2,}/, /-{2,}:/),
     pipe: _ => '|',
@@ -74,6 +69,7 @@ module.exports = grammar({
       $.escape,
       $.code_inline,
       $.strong_emphasis,
+      $.resource,
       $.emphasis,
       $.comment,
       $.break,
@@ -87,10 +83,14 @@ module.exports = grammar({
 
     strong_emphasis: $ => prec.left(seq('*', $._inline, '*')),
     emphasis: $ => prec.left(seq('_', $._inline, '_')),
+    resource: $ => seq('[', $.resource_link, ']', optional(seq('(', $.resource_label, ')'))),
+    resource_link: _ => /[^\]]+/,
+    resource_label: _ => /[^\)]+/,
+
     comment: _ => seq('# ', /[^\n]*/),
     break: _ => '<',
     escape: _ => /\\./,
-    _text: _ => /[^\n]/,
+    _text: _ => choice(/[a-zA-Z0-9\.,-]+/, /[^\n]/),
   },
 });
 
