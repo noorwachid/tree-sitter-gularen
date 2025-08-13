@@ -4,9 +4,14 @@ module.exports = grammar({
   extras: _ => ['\r'],
 
   rules: {
-    document: $ => repeat($._block),
+    document: $ => prec.left(2, repeat(choice(
+      $.section,
+      $.subsection,
+      $.subsubsection,
+      $._common_block,
+    ))),
 
-    _block: $ => choice(
+    _common_block: $ => prec.right(1, choice(
       $.code_block,
       $.section,
       $.subsection,
@@ -19,17 +24,42 @@ module.exports = grammar({
       $.admon,
       $.paragraph,
       '\n'
-    ),
+    )),
+
+    section: $ => prec.right(seq(
+      $.section_title,
+      repeat(choice(
+        $.subsection,
+        $.subsubsection,
+        $._common_block
+      ))
+    )),
+
+    subsection: $ => prec.right(seq(
+      $.subsection_title,
+      repeat(choice(
+        $.subsubsection,
+        $._common_block
+      ))
+    )),
+
+    subsubsection: $ => prec.right(seq(
+      $.subsubsection_title,
+      repeat(choice(
+        $._common_block
+      ))
+    )),
+
+    section_title: $ => prec.right(seq('>>> ', repeat1($._inline), optional('\n'))),
+    subsection_title: $ => prec.right(seq('>> ', repeat1($._inline), optional('\n'))),
+    subsubsection_title: $ => prec.right(seq('> ', repeat1($._inline), optional('\n'))),
+
 
     code_block: $ => choice($._code_block5, $._code_block4, $._code_block3),
 
     _code_block5: $ => seq(alias($.fence5, $.fence), optional(seq(choice(' !', ' '), $.language)), '\n', optional($.source), alias($.fence5, $.fence)),
     _code_block4: $ => seq(alias($.fence4, $.fence), optional(seq(choice(' !', ' '), $.language)), '\n', optional($.source), alias($.fence4, $.fence)),
     _code_block3: $ => seq(alias($.fence3, $.fence), optional(seq(choice(' !', ' '), $.language)), '\n', optional($.source), alias($.fence3, $.fence)),
-
-    section: $ => prec.right(seq('>>> ', repeat1($._inline), optional('\n'))),
-    subsection: $ => prec.right(seq('>> ', repeat1($._inline), optional('\n'))),
-    subsubsection: $ => prec.right(seq('> ', repeat1($._inline), optional('\n'))),
 
     bullet_list: $ => prec.right(seq($.bullet, ' ', repeat1($._inline), optional('\n'))),
     numbered_list: $ => prec.right(seq($.index, ' ', repeat1($._inline), optional('\n'))),

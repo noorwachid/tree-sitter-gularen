@@ -443,6 +443,65 @@
     "fields": {},
     "children": {
       "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "admon",
+          "named": true
+        },
+        {
+          "type": "bullet_list",
+          "named": true
+        },
+        {
+          "type": "check_list",
+          "named": true
+        },
+        {
+          "type": "code_block",
+          "named": true
+        },
+        {
+          "type": "func",
+          "named": true
+        },
+        {
+          "type": "metadata",
+          "named": true
+        },
+        {
+          "type": "numbered_list",
+          "named": true
+        },
+        {
+          "type": "paragraph",
+          "named": true
+        },
+        {
+          "type": "section",
+          "named": true
+        },
+        {
+          "type": "section_title",
+          "named": true
+        },
+        {
+          "type": "subsection",
+          "named": true
+        },
+        {
+          "type": "subsubsection",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "section_title",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
       "required": false,
       "types": [
         {
@@ -531,6 +590,65 @@
     "fields": {},
     "children": {
       "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "admon",
+          "named": true
+        },
+        {
+          "type": "bullet_list",
+          "named": true
+        },
+        {
+          "type": "check_list",
+          "named": true
+        },
+        {
+          "type": "code_block",
+          "named": true
+        },
+        {
+          "type": "func",
+          "named": true
+        },
+        {
+          "type": "metadata",
+          "named": true
+        },
+        {
+          "type": "numbered_list",
+          "named": true
+        },
+        {
+          "type": "paragraph",
+          "named": true
+        },
+        {
+          "type": "section",
+          "named": true
+        },
+        {
+          "type": "subsection",
+          "named": true
+        },
+        {
+          "type": "subsection_title",
+          "named": true
+        },
+        {
+          "type": "subsubsection",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subsection_title",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
       "required": false,
       "types": [
         {
@@ -566,6 +684,65 @@
   },
   {
     "type": "subsubsection",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "admon",
+          "named": true
+        },
+        {
+          "type": "bullet_list",
+          "named": true
+        },
+        {
+          "type": "check_list",
+          "named": true
+        },
+        {
+          "type": "code_block",
+          "named": true
+        },
+        {
+          "type": "func",
+          "named": true
+        },
+        {
+          "type": "metadata",
+          "named": true
+        },
+        {
+          "type": "numbered_list",
+          "named": true
+        },
+        {
+          "type": "paragraph",
+          "named": true
+        },
+        {
+          "type": "section",
+          "named": true
+        },
+        {
+          "type": "subsection",
+          "named": true
+        },
+        {
+          "type": "subsubsection",
+          "named": true
+        },
+        {
+          "type": "subsubsection_title",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "subsubsection_title",
     "named": true,
     "fields": {},
     "children": {
