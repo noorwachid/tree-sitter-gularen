@@ -49,7 +49,7 @@ module.exports = grammar({
       seq(' ', $.hashtable),
     ))),
     id: _ => /[a-z-]+/,
-    string: _ => seq('"', /[^"]+/, '"'),
+    string: _ => choice(seq('"', /[^"]+/, '"'), /[^\n]+/),
     hashtable: $ => seq('{\n', repeat1(seq(/\s+/, $.id, ': ', $.string, '\n')), '}\n'),
 
     bullet: _ => '-',
