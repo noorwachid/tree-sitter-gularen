@@ -478,10 +478,6 @@
           "named": true
         },
         {
-          "type": "section",
-          "named": true
-        },
-        {
           "type": "section_title",
           "named": true
         },
@@ -625,14 +621,6 @@
           "named": true
         },
         {
-          "type": "section",
-          "named": true
-        },
-        {
-          "type": "subsection",
-          "named": true
-        },
-        {
           "type": "subsection_title",
           "named": true
         },
@@ -720,18 +708,6 @@
         },
         {
           "type": "paragraph",
-          "named": true
-        },
-        {
-          "type": "section",
-          "named": true
-        },
-        {
-          "type": "subsection",
-          "named": true
-        },
-        {
-          "type": "subsubsection",
           "named": true
         },
         {

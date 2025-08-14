@@ -3,8 +3,8 @@
   "name": "gularen",
   "rules": {
     "document": {
-      "type": "PREC_LEFT",
-      "value": 2,
+      "type": "PREC_RIGHT",
+      "value": 0,
       "content": {
         "type": "REPEAT",
         "content": {
@@ -32,25 +32,13 @@
     },
     "_common_block": {
       "type": "PREC_RIGHT",
-      "value": 1,
+      "value": 0,
       "content": {
         "type": "CHOICE",
         "members": [
           {
             "type": "SYMBOL",
             "name": "code_block"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "section"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "subsection"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "subsubsection"
           },
           {
             "type": "SYMBOL",

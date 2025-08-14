@@ -4,18 +4,15 @@ module.exports = grammar({
   extras: _ => ['\r'],
 
   rules: {
-    document: $ => prec.left(2, repeat(choice(
+    document: $ => prec.right(repeat(choice(
       $.section,
       $.subsection,
       $.subsubsection,
       $._common_block,
     ))),
 
-    _common_block: $ => prec.right(1, choice(
+    _common_block: $ => prec.right(choice(
       $.code_block,
-      $.section,
-      $.subsection,
-      $.subsubsection,
       $.bullet_list,
       $.numbered_list,
       $.check_list,
